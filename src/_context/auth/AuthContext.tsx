@@ -1,5 +1,6 @@
 
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
+import { getToken } from "../../utils/token";
 
 interface AuthContextInterface {
     session: boolean;
@@ -12,7 +13,8 @@ const AuthenticationContext = createContext<AuthContextInterface>({ user:{}, ses
 export const AuthProvider = ({children}:{children:ReactNode}) => {
 
     const defUser = window.localStorage.getItem(`user`);
-    const defState = window.localStorage.getItem(`token`);
+    const defState = getToken(); // window.localStorage.getItem(`token`);
+
     const [state, setState] = useState(defState ? true : false);
 
     return (
