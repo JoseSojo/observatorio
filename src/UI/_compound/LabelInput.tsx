@@ -16,10 +16,10 @@ interface Props {
 export default function LabelInput({type, name, customClass, placeholder, change, value, downText, label}: Props) {
 
 
-    const cls = customClass ? customClass : `input input-bordered w-full max-w-xs`
+    const cls = customClass ? customClass : `input input-bordered w-full`
 
     return(
-        <label className="form-control w-full">
+        <label className="form-control w-full ">
             <div className="label">
                 <Text customClass="label-text text-lg font-semibold" text={label} />
                 {/* <span className="label-text-alt">Top Right label</span> */}

@@ -108,7 +108,6 @@ export default function Biblioteca() {
             setList([]);
 
             const json = await jsonPromise;
-            console.log(json);
             setList(json.body.list);
             // setCount(Number(json.body.count));
             setNow(json.body.now);

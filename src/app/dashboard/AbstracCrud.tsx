@@ -35,7 +35,6 @@ export default function AbstractCrud ({}: Props) {
             setActionsUnique(response.actionsUnique);
             setHeaders(response.header);
 
-            console.log(response);
         }
         Execute();
     }, [location]);

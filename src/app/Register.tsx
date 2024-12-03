@@ -3,8 +3,6 @@ import LabelInput from "../UI/_compound/LabelInput"
 import SingleCard from "../UI/_organism/Card/SingleCard"
 import Button from "../UI/_atom/Button";
 import { useNotification } from "../_context/NotificationContext";
-import { setToken } from "../utils/token";
-import { setUser } from "../utils/token copy";
 import NavbarPublic from "./public/NavbarPublic";
 import LinkTo from "../UI/_atom/LinkTo";
 import { CreateRegisterInterface } from "../types/auth/RegisterInterface";
@@ -18,7 +16,7 @@ export default function Register() {
     // const auth = useAuth();
     const navigate = useNavigate();
 
-    const [data, setData] = useState<CreateRegisterInterface>({ email: ``, password: ``, ci: ``, lastname: ``, name: ``, username: ``, });
+    const [data, setData] = useState<CreateRegisterInterface>({ usertype:`OBRERO_ADMINISTRATIVO`,email: ``, password: ``, ci: ``, lastname: ``, name: ``, username: ``, });
 
     const HandleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -33,8 +31,8 @@ export default function Register() {
             }
 
             // USER y TOKEN almacenados en localstorage
-            setToken(response.body.token);
-            setUser(response.body.user);
+            // setToken(response.body.token);
+            // setUser(response.body.user);
 
             noti.setMessage({ active: true, message: response.message, type: "success" });
             navigate(`/login`, { replace:true })
@@ -59,13 +57,13 @@ export default function Register() {
                 <SingleCard>
                     <form onSubmit={HandleSubmit} className="w-full justify-center items-center flex flex-col">
                         <h1 className="text-2xl">Crear cuenta</h1>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-5 w-full">
 
                             <LabelInput
                                 name="name"
                                 change={HandleCHange}
                                 label="Nombre"
-                                placeholder="ejemplo@ejemplo.com"
+                                placeholder="Nombre"
                                 type="text"
                                 value={data.name}
                                 customClass="" />
@@ -74,7 +72,7 @@ export default function Register() {
                                 name="lastname"
                                 change={HandleCHange}
                                 label="Apellido"
-                                placeholder="ejemplo@ejemplo.com"
+                                placeholder="Apellido"
                                 type="text"
                                 value={data.lastname}
                                 customClass="" />
@@ -83,7 +81,7 @@ export default function Register() {
                                 name="username"
                                 change={HandleCHange}
                                 label="Usuario"
-                                placeholder="ejemplo@ejemplo.com"
+                                placeholder="Usuario"
                                 type="text"
                                 value={data.username}
                                 customClass="" />
@@ -92,7 +90,7 @@ export default function Register() {
                                 name="ci"
                                 change={HandleCHange}
                                 label="Cédula"
-                                placeholder="ejemplo@ejemplo.com"
+                                placeholder="Cédula"
                                 type="ci"
                                 value={data.ci}
                                 customClass="" />
@@ -101,7 +99,7 @@ export default function Register() {
                                 name="email"
                                 change={HandleCHange}
                                 label="Correo"
-                                placeholder="ejemplo@ejemplo.com"
+                                placeholder="Correo"
                                 type="email"
                                 value={data.email}
                                 customClass="" />
@@ -114,6 +112,35 @@ export default function Register() {
                                 type="password"
                                 value={data.password}
                                 customClass="" />
+                        
+                            <label className="flex gap-3 items-center">
+                                <span>Estudiante</span>
+                                <input 
+                                    onChange={() => {
+                                        const type = `ESTUDIANTE` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO`
+                                        const prev = {...data, usertype:type };
+                                        setData(prev);
+                                    }} 
+                                    type="radio" 
+                                    name="usertype" 
+                                    value={`ESTUDIANTE`} 
+                                    />
+                            </label>
+
+                            <label className="flex gap-3 items-center">
+                                <span>Obrero/Administrativo</span>
+                                <input 
+                                    onChange={() => {
+                                        const type = `OBRERO_ADMINISTRATIVO` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO`
+                                        const prev = {...data, usertype:type };
+                                        setData(prev);
+                                    }} 
+                                    type="radio" 
+                                    name="usertype" 
+                                    value={`OBRERO_ADMINISTRATIVO`} 
+                                    />
+                            </label>
+
                         </div>
                         <Button type="submit" text="enviar" customClass="btn bg-blue-600 hover:bg-blue-500 text-white" />
                     </form>

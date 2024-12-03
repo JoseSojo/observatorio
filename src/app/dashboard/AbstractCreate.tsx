@@ -30,6 +30,7 @@ export default function AbstractCreate ({item,crud,reload}: Props) {
             const url = `${API}/gui/create/${crud}`;
             const req = RequestOptionsGetToken({ method:`GET` });
 
+
             const result = await fetch(url, req);
             const jsonPromise = result.json() as Promise<{ title:string,form:FORM, update:string }>;
 
