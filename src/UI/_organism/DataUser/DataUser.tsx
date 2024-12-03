@@ -6,6 +6,7 @@ import Button from "../../_atom/Button";
 import { API } from "../../../entorno";
 import { getToken } from "../../../utils/token";
 import CustomInput from "./component/CustomInput";
+import ButtonHandler from "../../../_handler/ButtonsHandler";
 
 interface Contact_Data_Interface {
     phone?: string,
@@ -96,15 +97,15 @@ export default function DataUser({ userId }: Props) {
         if (!personalData.ci) return NotiError(`Debes agregar tu cédula.`);
         if (!personalData.civil) return NotiError(`Debes agregar tu estado civíl.`);
         if (!personalData.lastname2) return NotiError(`Debes agregar tu segundo apellido.`);
-        if (!personalData.lastname) return NotiError(`Debes agregar tu apellido.`);
+        // if (!personalData.lastname) return NotiError(`Debes agregar tu apellido.`);
         if (!personalData.name2) return NotiError(`Debes agregar tu segundo nombre.`);
-        if (!personalData.name) return NotiError(`Debes agregar tu nombre.`);
+        // if (!personalData.name) return NotiError(`Debes agregar tu nombre.`);
         if (!personalData.sex) return NotiError(`Debes agregar tu sexo.`);
 
         if (!contactData.email2) return NotiError(`Debes agregar tu correo alternativo.`);
         if (!contactData.email) return NotiError(`Debes agregar tu correo principal.`);
         if (!contactData.phone2) return NotiError(`Debes agregar tu teléfono alternativo.`);
-        if (!contactData.phone) return NotiError(`Debes agregar tu teléfono principal.`);
+        // if (!contactData.phone) return NotiError(`Debes agregar tu teléfono principal.`);
 
         const ExecuteRequets = async () => {
             const url = `${API}/user/${userId}/update`;
@@ -140,7 +141,7 @@ export default function DataUser({ userId }: Props) {
             if (json.body) {
                 setPersonalData2({
                     age: json.body.age,
-                    birthdate: json.body.birtdate.split(`T`)[0],
+                    birthdate: json.body.birtdate ? json.body.birtdate.split(`T`)[0] : undefined,
                     ci: json.body.ci,
                     civil: json.body.estadoCivil,
                     lastname: json.body.lastname,
@@ -162,7 +163,45 @@ export default function DataUser({ userId }: Props) {
                     municipio: {
                         label: json.body.parroquiaReference.municipioReference.name,
                         name: `municipio`,
-                        value: json.body.parroquiaReference.municipioReference.id,   
+                        value: json.body.parroquiaReference.municipioReference.id,
+                    },
+                    parroquia: {
+                        label: json.body.parroquiaReference.name,
+                        name: `parroquia`,
+                        value: json.body.parroquiaReference.id
+                    },
+                    state: {
+                        label: json.body.parroquiaReference.municipioReference.stateReference.name,
+                        name: `estado`,
+                        value: json.body.parroquiaReference.municipioReference.stateReference.id,
+                    }
+                })
+
+                setPersonalData({
+                    age: json.body.age,
+                    birthdate: json.body.birtdate ? json.body.birtdate.split(`T`)[0] : undefined,
+                    ci: json.body.ci,
+                    civil: json.body.estadoCivil,
+                    lastname: json.body.lastname,
+                    lastname2: json.body.secondLastname,
+                    nacionality: json.body.nacionality,
+                    name: json.body.name,
+                    name2: json.body.secondName,
+                    sex: json.body.sexo,
+                });
+
+                setContactData({
+                    email: json.body.email,
+                    email2: json.body.email2,
+                    phone: json.body.phone,
+                    phone2: json.body.phone2,
+                })
+
+                setResidense({
+                    municipio: {
+                        label: json.body.parroquiaReference.municipioReference.name,
+                        name: `municipio`,
+                        value: json.body.parroquiaReference.municipioReference.id,
                     },
                     parroquia: {
                         label: json.body.parroquiaReference.name,
@@ -186,7 +225,17 @@ export default function DataUser({ userId }: Props) {
 
             {/* INICIO DATOS PERSONALES */}
 
-            <Subtitle customClass="col-span-12 text-xl font-black text-blue-800" text="Datos personales" />
+            <Subtitle customClass=" text-xl font-black text-blue-800" text="" />
+
+            <div className="flex justify-between items-center col-span-12">
+                <Subtitle customClass="text-xl font-black text-blue-800 mt-4" text="Datos personales" />
+
+                <Button
+                    type="submit"
+                    customClass={`${ButtonHandler({ param: `create` })} btn-sm col-span-2`}
+                    text="Actualizar datos"
+                />
+            </div>
 
             <label className="flex flex-col col-span-1">
                 <span className="text-sm font-semibold">Nac.</span>
@@ -228,7 +277,7 @@ export default function DataUser({ userId }: Props) {
                 value={personalData2 && personalData2.name2 ? personalData2.name2 : ``}
             />
             <CustomInput
-                cols="6"
+                cols="5"
                 change={ChangePersonalData}
                 name="lastname"
                 label="Primer Apellido"
@@ -236,29 +285,30 @@ export default function DataUser({ userId }: Props) {
                 value={personalData2 && personalData2.lastname ? personalData2.lastname : ``}
             />
             <CustomInput
-                cols="6"
+                cols="5"
                 change={ChangePersonalData}
                 name="lastname2"
                 label="Segundo Apellido"
                 type="text"
-                value={personalData2 && personalData2.lastname ? personalData2.lastname : ``}
+                value={personalData2 && personalData2.lastname2 ? personalData2.lastname2 : ``}
             />
             <CustomInput
-                cols="3"
-                change={ChangePersonalData}
-                name="birthdate"
-                label="Fecha de nacimiento"
-                type="text"
-                value={personalData2 && personalData2.birthdate ? personalData2.birthdate : ``}
-            />
-            <CustomInput
-                cols="1"
+                cols="2"
                 change={ChangePersonalData}
                 name="age"
                 label="Edad"
                 type="text"
                 value={personalData2 && personalData2.age ? personalData2.age : ``}
             />
+            <CustomInput
+                cols="4"
+                change={ChangePersonalData}
+                name="birthdate"
+                label="Fecha de nacimiento"
+                type="date"
+                value={personalData2 && personalData2.birthdate ? personalData2.birthdate : ``}
+            />
+
 
             <label className="flex flex-col col-span-4">
                 <span className="text-sm font-semibold">Estado Civíl</span>
@@ -298,21 +348,21 @@ export default function DataUser({ userId }: Props) {
                 change={SetResidenseData}
                 select="estado"
                 label="Estados"
-                initSelect={residence2 && residence2.state ? { id:residence2.state.value,label:residence2.state.label } : null}
+                initSelect={residence2 && residence2.state ? { id: residence2.state.value, label: residence2.state.label } : null}
             />
 
             <CustomSelect
                 change={SetResidenseData}
                 select="municipio"
                 label="Minucupios"
-                initSelect={residence2 && residence2.municipio ? { id:residence2.municipio.value,label:residence2.municipio.label } : null}
+                initSelect={residence2 && residence2.municipio ? { id: residence2.municipio.value, label: residence2.municipio.label } : null}
             />
 
             <CustomSelect
                 change={SetResidenseData}
                 select="parroquia"
                 label="Parroquia"
-                initSelect={residence2 && residence2.parroquia ? { id:residence2.parroquia.value,label:residence2.parroquia.label } : null}
+                initSelect={residence2 && residence2.parroquia ? { id: residence2.parroquia.value, label: residence2.parroquia.label } : null}
             />
 
             {/* FIN DATOS RECIDENCIA */}
@@ -324,7 +374,7 @@ export default function DataUser({ userId }: Props) {
             <CustomInput
                 cols="3"
                 change={ChangeContactData}
-                name="email"
+                name="phone"
                 label="Teléfono"
                 type="number"
                 value={contactData2 && contactData2.phone ? contactData2.phone : ``}
@@ -358,15 +408,6 @@ export default function DataUser({ userId }: Props) {
             />
 
             {/* FIN DATOS CONTACTO */}
-
-            <Button
-                type="submit"
-                customClass="btn col-span-2"
-                text="Actualizar datos"
-            />
-
-
-
         </form>
     )
 }

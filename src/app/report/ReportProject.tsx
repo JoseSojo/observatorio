@@ -41,6 +41,8 @@ export default function ReportProject() {
         setReport(json);
         setLoad(false);
         cb();
+        return;
+        load
     }
 
     const HandleClick = async () => {

@@ -4,7 +4,7 @@ interface Props {
     userId: string;
 }
 
-export default function DataLaboral({ user, userId }: Props) {
+export default function DataLaboral({ userId }: Props) {
 
     return (
         <div>

@@ -15,9 +15,10 @@ import ProjectPageCreate from "../app/manual/project/ProjectPageCreate";
 import AbstractReportUniqueDocument from "../app/dashboard/AbstractReportUniqeuDocument";
 import ProjectReportDocument from "../app/manual/project/ProjectReportDocument";
 import ProjectReportUniqueDocument from "../app/manual/project/ProjectReportUniqeuDocument";
-import ProfilePage from "../app/profile/ProfilePage";
+// import ProfilePage from "../app/profile/ProfilePage";
 import ReportProject from "../app/report/ReportProject";
 import Biblioteca from "../app/public/Biblioteca";
+import CompletedDataUser from "../UI/_organism/CompletedDataUser";
 
 const router = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: `/profile`,
-                element: <DashboardTemplate><ProfilePage /></DashboardTemplate>
+                element: <DashboardTemplate><CompletedDataUser /></DashboardTemplate>
             },
             {
                 path: `/report`,

@@ -12,6 +12,8 @@ import LabelSelect from "../../../UI/_compound/LabelSelect";
 import { getToken } from "../../../utils/token";
 import ButtonHandler from "../../../_handler/ButtonsHandler";
 import Subtitle from "../../../UI/_atom/Subtitle";
+import { getUser } from "../../../utils/token copy";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     reload: () => void;
@@ -20,8 +22,10 @@ interface Props {
 
 export default function ProjectCreate({ reload, h }: Props) {
 
+    const user = JSON.parse(getUser());
     const modal = useModal();
     const noti = useNotification();
+    const navigate = useNavigate();
 
     const [load, setLoad] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -35,6 +39,12 @@ export default function ProjectCreate({ reload, h }: Props) {
     const [customPublic, setCustomPublic] = useState(false);
     const [downloader, setDownloader] = useState(false);
     // 
+
+    useEffect(() => {
+        console.log(user);
+        const prev = [{ id:user.id, label:`${user.ci ? `${user.ci} - ` : ``} ${user.name} ${user.lastname}` }];
+        setDataAuthor(prev);
+    }, []);
 
     const [selectActive, setSelectActive] = useState(false);
     const [list, setList] = useState<{ id: string, label: string }[]>([]);
@@ -128,8 +138,13 @@ export default function ProjectCreate({ reload, h }: Props) {
 
             reload();
 
+            navigate(`/project`)
+
             setLoad(false);
             setError(null);
+            return;
+            load;
+            error;
         }
 
         Execute();
@@ -213,22 +228,6 @@ export default function ProjectCreate({ reload, h }: Props) {
                         {/* <span className="label-text-alt">Bottom Right label</span> */}
                     </div>
                 </label>
-                {/* 
-                <div className="grid w-full max-w-xs items-center gap-1.5">
-                    <label className="label-text text-lg font-semibold">Portada</label>
-                    <input
-                        onChange={(e) => {
-                            if (e.target.files && e.target.files.length > 0) {
-                                const file = e.target.files[0] as File;
-                                setPortada(file);
-                            }
-                        }}
-                        id="picture"
-                        type="file"
-                        name="file"
-                        className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" />
-                </div> 
-                */}
 
                 <div className="grid w-full grid-cols-2 place-items-center">
                     <label className="gap-3 flex">

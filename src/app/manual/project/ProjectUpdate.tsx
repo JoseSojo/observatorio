@@ -46,6 +46,9 @@ export default function ProjectUpdate({ id, report, customPublic, downlaod }: Pr
             report();
             setLoad(false);
             setError(null);
+            return;
+            load
+            error
         }
 
         Execute();

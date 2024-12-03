@@ -19,8 +19,8 @@ export default function Biblioteca() {
     const [next, setNext] = useState(false);
     const [previws, setPreviws] = useState(false);
 
-    const [skip, setSkip] = useState(0);
-    const [take, setTake] = useState(10);
+    // const [skip, setSkip] = useState(0);
+    // const [take, setTake] = useState(10);
 
     const [valueCategory, setValueCategory] = useState(``);
     const [categorys, setCategorys] = useState<any[] | null>();
@@ -39,6 +39,11 @@ export default function Biblioteca() {
         setCategorySelect(null);
         setParam(``);
         HandleReload();
+        return;
+        dataList
+        now
+        next
+        previws
     }
 
     const HandleChangeParam = ({ value }: { name: string, value: string }) => {

@@ -4,7 +4,7 @@ interface Props {
     userId: string;
 }
 
-export default function DataEstudios({ user, userId }: Props) {
+export default function DataEstudios({ userId }: Props) {
 
     return (
         <div>
