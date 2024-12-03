@@ -36,7 +36,6 @@ export default function AbstractCustomList({ url }: Props) {
             setList([]);
 
             const json = await jsonPromise;
-            console.log(json);
             setList(json.body.list);
             setHeader(json.body.header);
             // setCount(Number(json.body.count));

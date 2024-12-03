@@ -6,6 +6,7 @@ export interface CreateRegisterInterface {
     email: string;
     ci: string;
     password: string;
+    usertype: `OBRERO_ADMINISTRATIVO` | `ESTUDIANTE`
 }
 
 /**

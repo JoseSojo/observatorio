@@ -11,10 +11,6 @@ interface Props {
 
 export default function CardItemDashboard({ item }: Props) {
 
-    if(item.child) {
-        console.log(item.child);
-    }
-
     const [label,setLabel] = useState<string>(item.label); 
     const [value,setValue] = useState<string | number>(item.value); 
 

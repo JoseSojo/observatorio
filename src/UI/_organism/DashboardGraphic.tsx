@@ -24,7 +24,6 @@ export default function DashboardGraphic () {
             const req = RequestOptionsGetToken({ method:`GET` });
             const result = await fetch(url, req);
             const json = await result.json() as Graphic[];
-            // console.log(json);
             setGraphic(json);
         }
         Execute();

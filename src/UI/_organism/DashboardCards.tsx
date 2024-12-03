@@ -26,7 +26,6 @@ export default function DashboardCards () {
             const result = await fetch(url, req);
             const json = await result.json() as Card[];
 
-            console.log(json);
             setCards(json);
         }
         Execute();

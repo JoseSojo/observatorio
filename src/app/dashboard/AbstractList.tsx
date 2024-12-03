@@ -47,9 +47,7 @@ export default function AbstractList({ header, path, actions, onAction, reload,s
             setList([]);
 
             const json = await jsonPromise;
-            console.log(json);
             setList(json.body.list);
-            // setCount(Number(json.body.count));
             setNow(json.body.now);
             setNext(json.body.next ? true : false);
             setPreviws(json.body.previous ? true : false);

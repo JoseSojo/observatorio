@@ -9,14 +9,10 @@ interface Props {
 
 export default function ReportDocument({ item }: Props) {
 
-    console.log(item);
-
     const customPages = item.page;
     const header = item.header;
     const label = item.label;
     const count = item.count;
-
-    console.log(customPages[0].list);
 
     return (
         <PDFViewer className='min-h-[80vh] w-full'>

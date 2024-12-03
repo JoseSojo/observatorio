@@ -35,8 +35,6 @@ export default function ProjectReportUniqueDocument() {
 
             const json = await jsonPromise;
 
-            console.log(json.data.authos);
-
             setAuthors(json.data.authos);
 
             setData(json.data);

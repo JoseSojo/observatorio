@@ -39,7 +39,6 @@ export default function ReportProject() {
         const result = await fetch(url, req);
         const json = await result.json() as ReportInterface;
         setReport(json);
-        console.log(json);
         setLoad(false);
         cb();
     }
