@@ -1,26 +1,16 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { useEffect, useState } from "react";
-import { API } from "../../entorno";
-import { RequestOptionsGetToken } from "../../utils/req/RequetsOptions";
-import GraphicItemDashboard from "../_compound/GraphicItemDashboard";
+import { Graphic } from "../UI/_organism/DashboardGraphic";
+import { API } from "../entorno";
+import { RequestOptionsGetToken } from "../utils/req/RequetsOptions";
+import GraphicItemDashboard from "../UI/_compound/GraphicItemDashboard";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
-
-
-export interface Graphic {
-    label:      string[];
-    value:      number[];
-}
-
-
-export default function DashboardGraphic () {
+export default function Analysis() {
 
     const [graphic, setGraphic] = useState<Graphic[] | null>(null);
 
     useEffect(() => {
         const Execute = async () => {
-            const url = `${API}/gui/graphic/?biblioteca=si`;
+            const url = `${API}/gui/graphic`;
             const req = RequestOptionsGetToken({ method:`GET` });
             const result = await fetch(url, req);
             const json = await result.json() as Graphic[];
@@ -30,13 +20,13 @@ export default function DashboardGraphic () {
     }, [])
 
     return (
-        <>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             {
                 graphic &&
                 graphic.map((grp) => (
                     <GraphicItemDashboard item={grp} />
                 ))
             }
-        </>
+        </div>
     );
 }

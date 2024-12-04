@@ -16,7 +16,7 @@ interface Props {
     id?: string
 }
 
-export default function AbstractReport({ item, crud, translade,id }: Props) {
+export default function AbstractReport({ item, crud, translade, id }: Props) {
 
     const modal = useModal();
     const [load, setLoad] = useState(true);
@@ -46,6 +46,7 @@ export default function AbstractReport({ item, crud, translade,id }: Props) {
 
     const Download = () => {
         if (!options) return;
+        modal.hidden();
         translade(`/dashboard${options.path}`);
     }
 

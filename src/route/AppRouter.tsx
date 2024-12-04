@@ -19,6 +19,8 @@ import ProjectReportUniqueDocument from "../app/manual/project/ProjectReportUniq
 import ReportProject from "../app/report/ReportProject";
 import Biblioteca from "../app/public/Biblioteca";
 import CompletedDataUser from "../UI/_organism/CompletedDataUser";
+import UserUniqueCrud from "../app/manual/user/UserUniqueCrud";
+import Analysis from "../app/Analysis";
 
 const router = createBrowserRouter([
     {
@@ -49,8 +51,16 @@ const router = createBrowserRouter([
                 element: <DashboardTemplate><ReportProject /></DashboardTemplate>
             },
             {
+                path: `/dashboard/user/:id`,
+                element: <DashboardTemplate><UserUniqueCrud /></DashboardTemplate>
+            },
+            {
                 path: `/dashboard`,
                 element: <DashboardTemplate><Dashboard /></DashboardTemplate>
+            },
+            {
+                path: `/dashboard/analysis`,
+                element: <DashboardTemplate><Analysis /></DashboardTemplate>
             },
             {
                 path: `/dashboard/:crud`,

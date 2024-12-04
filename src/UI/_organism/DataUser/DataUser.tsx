@@ -49,9 +49,10 @@ interface Perosnal_Data_Interface {
 interface Props {
     user: any;
     userId: string;
+    update: boolean;
 }
 
-export default function DataUser({ userId }: Props) {
+export default function DataUser({ userId, update }: Props) {
 
     const noti = useNotification();
 
@@ -68,6 +69,7 @@ export default function DataUser({ userId }: Props) {
 
     const SetResidenseData = ({ label, value, name }: { label: string, value: string, name: string }) => {
         // const prev = residence ? { ...residence, [name]:value } : { [name]:value }
+        if (update) return;
         const prev = residence
             ? { ...residence, [name]: { label, value, name } }
             : { [name]: { label, value, name } }
@@ -75,17 +77,20 @@ export default function DataUser({ userId }: Props) {
     }
 
     const ChangeContactData = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        if (update) return;
         const prev = contactData ? { ...contactData, [e.target.name]: e.target.value } : { [e.target.name]: e.target.value };
         setContactData(prev);
     }
 
     const ChangePersonalData = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        if (update) return;
         const prev = personalData ? { ...personalData, [e.target.name]: e.target.value } : { [e.target.name]: e.target.value };
         setPersonalData(prev);
     }
 
     const HandleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (update) return NotiError(`No puedes actualizar.`);
 
         // validar datos
         if (!personalData) return NotiError(`Debes completar los datos personales.`);
@@ -157,7 +162,7 @@ export default function DataUser({ userId }: Props) {
                     email2: json.body.email2,
                     phone: json.body.phone,
                     phone2: json.body.phone2,
-                })
+                });
 
                 setResidense2({
                     municipio: {
@@ -175,7 +180,7 @@ export default function DataUser({ userId }: Props) {
                         name: `estado`,
                         value: json.body.parroquiaReference.municipioReference.stateReference.id,
                     }
-                })
+                });
 
                 setPersonalData({
                     age: json.body.age,
@@ -195,7 +200,7 @@ export default function DataUser({ userId }: Props) {
                     email2: json.body.email2,
                     phone: json.body.phone,
                     phone2: json.body.phone2,
-                })
+                });
 
                 setResidense({
                     municipio: {
@@ -213,7 +218,7 @@ export default function DataUser({ userId }: Props) {
                         name: `estado`,
                         value: json.body.parroquiaReference.municipioReference.stateReference.id,
                     }
-                })
+                });
             }
 
         }
@@ -221,7 +226,7 @@ export default function DataUser({ userId }: Props) {
     }, [])
 
     return (
-        <form onSubmit={HandleSubmit} className="grid grid-cols-12 gap-3 py-3">
+        <form onSubmit={HandleSubmit} className="grid grid-cols-12 gap-3">
 
             {/* INICIO DATOS PERSONALES */}
 
@@ -230,11 +235,14 @@ export default function DataUser({ userId }: Props) {
             <div className="flex justify-between items-center col-span-12">
                 <Subtitle customClass="text-xl font-black text-blue-800 mt-4" text="Datos personales" />
 
-                <Button
-                    type="submit"
-                    customClass={`${ButtonHandler({ param: `create` })} btn-sm col-span-2`}
-                    text="Actualizar datos"
-                />
+                {
+                    update &&
+                    <Button
+                        type="submit"
+                        customClass={`${ButtonHandler({ param: `create` })} btn-sm col-span-2`}
+                        text="Actualizar datos"
+                    />
+                }
             </div>
 
             <label className="flex flex-col col-span-1">
