@@ -8,6 +8,7 @@ import Button from "../../../UI/_atom/Button";
 import ButtonHandler from "../../../_handler/ButtonsHandler";
 import { Icono } from "../../../_handler/IconHandler";
 import useHanldeClickProject from "../../../utils/useHandleClickProject";
+import AbstractStatictics from "../../dashboard/AbstracStatictics";
 
 export default function ProjectManualCrud () {
 
@@ -42,21 +43,27 @@ export default function ProjectManualCrud () {
 
                 <ul className="flex gap-3 justify-center items-center">
                     {
-                        actionsList.map((item) => (
-                            <Button
-                                click={() => {
-                                    HandleActionsList({id:item.id, ico:item.ico,label:item.label,path:item.path,use:item.use });
-                                }}
-                                customClass={`${ButtonHandler({ param:item.ico })} btn-sm`}
-                                ico={Icono({ ico:item.ico })}
-                                text={`${item.label}`}
-                            />
-                        ))
+                        actionsList.map((item) => {
+                            if(item.use == "modal" && item.label == `Crear`) return <></>
+
+                            return (
+                                <Button
+                                    click={() => {
+                                        HandleActionsList({id:item.id, ico:item.ico,label:item.label,path:item.path,use:item.use });
+                                    }}
+                                    customClass={`${ButtonHandler({ param:item.ico })} btn-sm`}
+                                    ico={Icono({ ico:item.ico })}
+                                    text={`${item.label}`}
+                                />
+                            )
+                        })
                     }
                 </ul>
             </div>
 
             <AbstractList loadReload={Reload} reload={reload} onAction={HandleActionsList} actions={actionsUnique} header={headers} path={`/project`} />
+        
+            <AbstractStatictics crud={`project`} />  
         </div>
     )
 }

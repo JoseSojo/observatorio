@@ -115,7 +115,7 @@ export default function Register() {
 
                             <div className="col-span-3 grid lg:grid-cols-3 mb-3">
                                 <label className="flex gap-3 items-center">
-                                    <span>Estudiante</span>
+                                    <span className="text-light text-gray-600">Estudiante</span>
                                     <input
                                         onChange={() => {
                                             const type = `ESTUDIANTE` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO` | `DOCENTE`
@@ -129,7 +129,7 @@ export default function Register() {
                                 </label>
 
                                 <label className="flex gap-3 items-center">
-                                    <span>Docente</span>
+                                    <span className="text-light text-gray-600">Docente</span>
                                     <input
                                         onChange={() => {
                                             const type = `DOCENTE` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO` | `DOCENTE`
@@ -143,7 +143,7 @@ export default function Register() {
                                 </label>
 
                                 <label className="flex gap-3 items-center">
-                                    <span>Obrero/Administrativo</span>
+                                    <span className="text-light text-gray-600">Obrero/Administrativo</span>
                                     <input
                                         onChange={() => {
                                             const type = `OBRERO_ADMINISTRATIVO` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO` | `DOCENTE`
@@ -162,7 +162,7 @@ export default function Register() {
                     </form>
                     <LinkTo
                         customClass="text-sm font-light m-auto mt-4 text-sky-700 hover:text-sky-800"
-                        path="/register"
+                        path="/login"
                         text="¿Ya tienes cuenta?, Iniciar sesión"
                     />
                 </SingleCard>

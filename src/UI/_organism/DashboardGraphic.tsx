@@ -25,6 +25,7 @@ export default function DashboardGraphic () {
             const result = await fetch(url, req);
             const json = await result.json() as Graphic[];
             setGraphic(json);
+            console.log(json);
         }
         Execute();
     }, [])

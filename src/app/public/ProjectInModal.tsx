@@ -1,15 +1,18 @@
+import { useModal } from "../../_context/ModalContext"
 import ButtonHandler from "../../_handler/ButtonsHandler"
-import { Icono } from "../../_handler/IconHandler"
 import { API_STATIC } from "../../entorno"
 import Button from "../../UI/_atom/Button"
 import Paragraph from "../../UI/_atom/Paragraph"
 import Subtitle from "../../UI/_atom/Subtitle"
+import DownloadAnimate from "../../UI/AnimateIcons/DownloadAnimate"
 
 interface Props {
     item: any
 }
 
 export default function ProjectInModal({ item }: Props) {
+
+    const modal = useModal();
 
     return (
         <div className="bg-white max-h-[80vh] h-[80vh] rounded shadow-xl grid grid-cols-1 lg:grid-cols-[.7fr_1fr]">
@@ -42,22 +45,16 @@ export default function ProjectInModal({ item }: Props) {
 
                 <div className="flex justify-between items-center gap-3">
                     <Button
+                        click={()=>modal.hidden()}
                         customClass="btn btn-md text-white btn-error"
                         text="cerrar"
                     />
                     {
                         item.downloader &&
-                        <a target="_blank" className={`${ButtonHandler({ param: `download` })}`} href={`${item && item.documentRef && item.documentRef.donwload ? `${API_STATIC}${item.documentRef.donwload}` : ``}`} download={true}>
-                            {Icono({ ico:`download` })}
+                        <a target="_blank" className={`${ButtonHandler({ param: `` })} border border-slate-300 hover:bg-slate-300`} href={`${item && item.documentRef && item.documentRef.donwload ? `${API_STATIC}${item.documentRef.donwload}` : ``}`} download={true}>
+                            <DownloadAnimate size={38} />
                             Descargar
                         </a>
-                        // <a
-                        //     href={`${API_STATIC}/${item.}`}
-                        //     download={item.title}
-                        //     className="btn btn-md text-white btn-success"
-                        // >
-                        //     descargar
-                        // </a>
                     }
 
                 </div>

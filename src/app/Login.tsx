@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react"
 import LabelInput from "../UI/_compound/LabelInput"
-import SingleCard from "../UI/_organism/Card/SingleCard"
 import Button from "../UI/_atom/Button";
 import { CreateLoginInterface } from "../types/auth/LoginInterface";
 import { ExecuteLogin } from "../_service/auth/LoginService";
@@ -54,7 +53,7 @@ export default function Login() {
                 <NavbarPublic />
             </header>
             <div className="h-full flex justify-center items-center mt-5">
-                <SingleCard>
+                <div className="card bg-base-100 w-[90%] lg:w-[40%] shadow-lg border-t p-5">
                     <form onSubmit={HandleSubmit} className="w-full justify-center items-center flex flex-col">
                         <h1 className="text-2xl">Iniciar Sesión</h1>
                         <LabelInput 
@@ -81,7 +80,7 @@ export default function Login() {
                         path="/register" 
                         text="¿No tienes cuenta?, Crear cuenta"
                         />
-                </SingleCard>
+                </div>
             </div>
         </div>
     )

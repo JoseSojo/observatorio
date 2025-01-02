@@ -80,6 +80,9 @@ export default function ProjectUpdate({ id, report, customPublic, downlaod }: Pr
         Execute();
     }
 
+    // alert(`Download ${downlaod}`)
+    // alert(`Public ${customPublic}`) 
+
     return (
         <>
             <div className="grid gap-3">
@@ -88,9 +91,11 @@ export default function ProjectUpdate({ id, report, customPublic, downlaod }: Pr
 
                     <label className="relative inline-flex items-center cursor-pointer">
                         
-                        <input onChange={() => HanldeSubmitDownload()} type="checkbox" checked={currentDownlaod} value="" className="sr-only peer" />
-                            <div className="peer ring-0 bg-rose-400  rounded-full outline-none duration-300 after:duration-500 w-12 h-12  shadow-md peer-checked:bg-emerald-500  peer-focus:outline-none  after:content-['✖️'] after:rounded-full after:absolute after:outline-none after:h-10 after:w-10 after:bg-gray-50 after:top-1 after:left-1 after:flex after:justify-center after:items-center  peer-hover:after:scale-75 peer-checked:after:content-['✔️'] after:-rotate-180 peer-checked:after:rotate-0">
-                            </div>
+                        {
+                            downlaod 
+                            ? <input onChange={() => HanldeSubmitDownload()} type="checkbox" checked className="checkbox" />
+                            : <input onChange={() => HanldeSubmitDownload()} type="checkbox" className="checkbox" />
+                        }
                     </label>
                 </div>
             </div>
@@ -100,9 +105,12 @@ export default function ProjectUpdate({ id, report, customPublic, downlaod }: Pr
                     <Title customClass="text-2xl font-black mb-2 text-center" text="Público" />
 
                     <label className="relative inline-flex items-center cursor-pointer">
-                        <input onChange={() => HanldeSubmitPublic()} type="checkbox" checked={currentPublic} value="" className="sr-only peer" />
-                            <div className="peer ring-0 bg-rose-400  rounded-full outline-none duration-300 after:duration-500 w-12 h-12  shadow-md peer-checked:bg-emerald-500  peer-focus:outline-none  after:content-['✖️'] after:rounded-full after:absolute after:outline-none after:h-10 after:w-10 after:bg-gray-50 after:top-1 after:left-1 after:flex after:justify-center after:items-center  peer-hover:after:scale-75 peer-checked:after:content-['✔️'] after:-rotate-180 peer-checked:after:rotate-0">
-                            </div>
+                        {
+                            customPublic 
+                            ? <input onChange={() => HanldeSubmitPublic()} type="checkbox" checked className="checkbox" />
+                            : <input onChange={() => HanldeSubmitPublic()} type="checkbox" className="checkbox" />
+                        }
+                        
                     </label>
                 </div>
             </div>

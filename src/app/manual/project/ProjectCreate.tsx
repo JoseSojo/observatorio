@@ -96,7 +96,7 @@ export default function ProjectCreate({ reload, h }: Props) {
             // if (!data[`public`]) return alert(`public`);
             // if (!data[`downloader`]) return alert(`downloader`);
             if (!data[`date`]) return alert(`date`);
-            if (!dataSelect[`line`]) return alert(`line`);
+            // if (!dataSelect[`line`]) return alert(`line`);
             if (!dataSelect[`program`]) return alert(`program`);
             if (!dataAuthor) return alert(`autores`);
 
@@ -112,7 +112,7 @@ export default function ProjectCreate({ reload, h }: Props) {
             formData.append(`keywords`, data[`keyword`]);
             formData.append(`date`, data[`date`]);
 
-            formData.append(`lineId`, dataSelect[`line`]);
+            if (dataSelect[`line`]) formData.append(`lineId`, dataSelect[`line`]);
             formData.append(`programId`, dataSelect[`program`]);
 
             formData.append(`userId`, JSON.stringify(selects));
