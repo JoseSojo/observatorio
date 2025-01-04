@@ -63,7 +63,9 @@ export default function AbstractCrud ({}: Props) {
 
             <AbstractList loadReload={Reload} reload={reload} onAction={HandleActionsList} actions={actionsUnique} header={headers} path={`/${crud}`} />
         
-            <AbstractStatictics crud={crud} />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3">
+                <AbstractStatictics crud={crud} />
+            </div>
         </div>
     )
 }

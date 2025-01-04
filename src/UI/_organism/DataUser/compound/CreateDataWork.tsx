@@ -52,7 +52,18 @@ export default function CreateDataWork ({reload}:Props) {
 
             const result = await fetch(url, req);
             const json = await result.json();
-            console.log(json);
+
+            if(!result.ok || json.error) {
+                if(json.message) {
+                    modal.hidden();
+                    noti.setMessage({ active:true,message:json.message,type:`error` })
+                    return;
+                }
+                modal.hidden();
+                noti.setMessage({ active:true,message:`Oops. hubo un error al crear`,type:`error` })
+                return;
+            }
+
             reload();
             modal.hidden();
         }

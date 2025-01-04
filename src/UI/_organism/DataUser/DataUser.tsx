@@ -69,7 +69,7 @@ export default function DataUser({ userId, update }: Props) {
 
     const SetResidenseData = ({ label, value, name }: { label: string, value: string, name: string }) => {
         // const prev = residence ? { ...residence, [name]:value } : { [name]:value }
-        if (update) return;
+        //if (update) return;
         const prev = residence
             ? { ...residence, [name]: { label, value, name } }
             : { [name]: { label, value, name } }
@@ -77,20 +77,20 @@ export default function DataUser({ userId, update }: Props) {
     }
 
     const ChangeContactData = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        if (update) return;
+        //if (update) return;
         const prev = contactData ? { ...contactData, [e.target.name]: e.target.value } : { [e.target.name]: e.target.value };
         setContactData(prev);
     }
 
     const ChangePersonalData = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        if (update) return;
+        //if (update) return;
         const prev = personalData ? { ...personalData, [e.target.name]: e.target.value } : { [e.target.name]: e.target.value };
         setPersonalData(prev);
     }
 
     const HandleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (update) return NotiError(`No puedes actualizar.`);
+        //if (update) return NotiError(`No puedes actualizar.`);
 
         // validar datos
         if (!personalData) return NotiError(`Debes completar los datos personales.`);
@@ -108,7 +108,7 @@ export default function DataUser({ userId, update }: Props) {
         if (!personalData.sex) return NotiError(`Debes agregar tu sexo.`);
 
         if (!contactData.email2) return NotiError(`Debes agregar tu correo alternativo.`);
-        if (!contactData.email) return NotiError(`Debes agregar tu correo principal.`);
+        // if (!contactData.email) return NotiError(`Debes agregar tu correo principal.`);
         if (!contactData.phone2) return NotiError(`Debes agregar tu teléfono alternativo.`);
         // if (!contactData.phone) return NotiError(`Debes agregar tu teléfono principal.`);
 
@@ -236,7 +236,7 @@ export default function DataUser({ userId, update }: Props) {
                 <Subtitle customClass="text-xl font-black text-blue-800 mt-4" text="Datos personales" />
 
                 {
-                    update &&
+                    !update &&
                     <Button
                         type="submit"
                         customClass={`${ButtonHandler({ param: `create` })} btn-sm col-span-2`}

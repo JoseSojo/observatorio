@@ -3,6 +3,7 @@ import { Graphic } from "../UI/_organism/DashboardGraphic";
 import { API } from "../entorno";
 import { RequestOptionsGetToken } from "../utils/req/RequetsOptions";
 import GraphicItemDashboard from "../UI/_compound/GraphicItemDashboard";
+import AbstractStatictics from "./dashboard/AbstracStatictics";
 
 export default function Analysis() {
 
@@ -20,13 +21,18 @@ export default function Analysis() {
     }, [])
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-            {
-                graphic &&
-                graphic.map((grp) => (
-                    <GraphicItemDashboard item={grp} />
-                ))
-            }
+        <div className="grid gap-4">
+            <div className="gap-3 grid lg:grid-cols-3">
+                {
+                    graphic &&
+                    graphic.map((grp) => (
+                        <GraphicItemDashboard item={grp} />
+                    ))
+                }
+                <div className="grid grid-cols-1 lg:grid-cols-2 lg:col-span-3 gap-3 mt-3">
+                    <AbstractStatictics crud={`analysis`} />
+                </div>
+            </div>
         </div>
     );
 }

@@ -11,7 +11,7 @@ export default function Dashboard() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {
-                user.rolReference.name === `OBRERO_ADMINISTRATIVO` || user.rolReference.name === `DOCENTE`
+                user.rolReference.name === `OBRERO_ADMINISTRATIVO` || user.rolReference.name === `DOCENTE` || user.rolReference.name === `ESTUDIANTE`
                     ? <CompletedDataUser />
                     : <>
                         <div className="col-span-1 md:col-span-2 lg:col-span-4 flex flex-row w-full gap-3">
@@ -20,7 +20,10 @@ export default function Dashboard() {
                         <div className="col-span-1 md:col-span-2 lg:col-span-4 flex flex-row w-full gap-3 ">
                             <DashboardGraphic />
                         </div>
-                        <AbstractStatictics crud={`dashboard`} />
+
+                        <div className="col-span-1 md:col-span-2 lg:col-span-4 grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3">
+                            <AbstractStatictics crud={`dashboard`} />
+                        </div>
                     </>
             }
         </div>

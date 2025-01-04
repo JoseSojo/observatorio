@@ -8,6 +8,7 @@ import LinkTo from "../UI/_atom/LinkTo";
 import { CreateRegisterInterface } from "../types/auth/RegisterInterface";
 import { RegisterService } from "../_service/auth/RegisterService";
 import { useNavigate } from "react-router-dom";
+import FooterPublic from "./public/FooterPublic";
 
 
 export default function Register() {
@@ -49,7 +50,7 @@ export default function Register() {
 
     return (
 
-        <div className="min-h-screen w-full">
+        <div className="min-h-screen w-full flex flex-col justify-between">
             <header>
                 <NavbarPublic />
             </header>
@@ -167,6 +168,8 @@ export default function Register() {
                     />
                 </SingleCard>
             </div>
+
+            <FooterPublic />
         </div>
     )
 }

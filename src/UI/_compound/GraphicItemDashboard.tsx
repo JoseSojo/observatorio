@@ -47,7 +47,7 @@ export default function GraphicItemDashboard({ item }: Props) {
     }
     
     return (
-        <div className="col-span-2 rounded-lg bg-white flex-1 flex justify-center items-center flex-col relative">
+        <div className="rounded-lg bg-white flex-1 flex justify-center items-center flex-col relative">
             <Button
                 click={() => OnModal()}
                 // text="ver"

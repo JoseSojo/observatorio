@@ -9,6 +9,7 @@ import { setUser } from "../utils/token copy";
 import { useAuth } from "../_context/auth/AuthContext";
 import NavbarPublic from "./public/NavbarPublic";
 import LinkTo from "../UI/_atom/LinkTo";
+import FooterPublic from "./public/FooterPublic";
 
 
 export default function Login() {
@@ -48,7 +49,7 @@ export default function Login() {
 
     return (
 
-        <div className="min-h-screen w-full">
+        <div className="min-h-screen w-full flex flex-col justify-between">
             <header>
                 <NavbarPublic />
             </header>
@@ -82,6 +83,7 @@ export default function Login() {
                         />
                 </div>
             </div>
+            <FooterPublic />
         </div>
     )
 }
