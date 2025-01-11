@@ -42,7 +42,7 @@ export default function ReportProject() {
         setLoad(false);
         cb();
         return;
-        load
+        
     }
 
     const HandleClick = async () => {
@@ -60,7 +60,6 @@ export default function ReportProject() {
 
                 <ul>
                     <li>
-                        <Button click={HandleClick} customClass={`${ButtonHandler({ param: `report` })}`} text="Reporte" ico={Icono({ ico: `report` })} />
                     </li>
                 </ul>
             </div>
@@ -133,6 +132,14 @@ export default function ReportProject() {
                         value={data[`dateEnd`]}
                     />
                 </div>
+
+                <Button 
+                    click={HandleClick} 
+                    customClass={`${ButtonHandler({ param: `report` })}`} 
+                    text={ report ? `Descargar` : load ? `Generando...` : "Generar Reporte"} 
+                    ico={Icono({ ico: `report` })}
+                    />
+
             </div>
 
         </div>

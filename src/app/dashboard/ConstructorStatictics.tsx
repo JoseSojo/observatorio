@@ -13,8 +13,9 @@ interface Props {
 
 export default function ConstructorStatictics({ statictics }: Props) {
 
+    const [data, setData] = useState<any>(null);
     const [header, setHeader] = useState<string[] | null>(null);
-    const [value, setValue] = useState<string[] | null>(null);
+    const [value, setValue] = useState<{label:string,value:any[]}[] | null>(null);
     const [title, setTitle] = useState(``);
     const [filter, setFilter] = useState<any[] | null>(null);
     const [filterName, setFilterName] = useState<`month` | `year`>(`month`);
@@ -30,7 +31,6 @@ export default function ConstructorStatictics({ statictics }: Props) {
             setTitle(json.title);
             if (json.filter) setFilter(json.filter);
             if (json.filterName) setFilterName(json.filterName);
-            console.log(json.filterName)
         }
         ExecuteRequets();
     }, [])
@@ -40,36 +40,48 @@ export default function ConstructorStatictics({ statictics }: Props) {
             const url = `${API}${statictics.path}&month=${customFilter && customFilter.month ? customFilter.month : ``}&year=${customFilter && customFilter.year ? customFilter.year : ``}`;
             const req = RequestOptionsGetToken({ method: `GET` });
             const result = await fetch(url, req);
-            const json = await result.json() as { header: string[], value: string[], title: string, filter: any | null };
+            const json = await result.json() as { header: string[], value: {label:string,value:any[]}[], title: string, filter: any | null };
             setHeader(json.header);
             setValue(json.value);
         }
         ExecuteRequets();
     }, [customFilter, customFilter?.month, customFilter?.year])
 
-    const data: any = {
-        labels: header,
-        datasets: [
-            {
-                label: 'Totalidad',
-                data: value,
-                backgroundColor: [
-                    '#0ea5e9',
-                    '#0284c7',
-                    '#3b82f6',
-                    '#2563eb',
-                    '#0369a1',
-                    '#1d4ed8',
-                    '#075985',
-                    '#1e40af',
-                    '#0c4a6e',
-                    '#1e3a8a'
-                ],
-                borderColor: '#eff6ff',
-                borderWidth: 2,
-            },
-        ],
-    }
+    const colors = [
+        '#0ea5e9',
+        '#0284c7',
+        '#3b82f6',
+        '#2563eb',
+        '#0369a1',
+        '#1d4ed8',
+        '#075985',
+        '#1e40af',
+        '#0c4a6e',
+        '#1e3a8a'
+    ]
+    // {
+    //     label: 'Totalidad',
+    //     data: value,
+    //     backgroundColor: ,
+    //     borderColor: '#eff6ff',
+    //     borderWidth: 2,
+    // }
+
+    useEffect(() => {
+        const data: any = {
+            labels: header,
+            datasets: value ? value.map((item,i) => { 
+                return {
+                    label:item.label,
+                    data:item.value,
+                    backgroundColor: colors[i],
+                }
+            }) : [],
+        }
+        setData(data);
+    }, [value])
+
+    
 
     return (
         <div className="bg-white p-3 bg-custom-white-100 border-9 w-full rounded-lg shadow max-h-[400px] flex flex-col justify-center items-center py-5">
@@ -99,7 +111,7 @@ export default function ConstructorStatictics({ statictics }: Props) {
                     </ul>
                 </div>
             }
-            <Bar data={data} />
+            { data && <Bar data={data} /> }
         </div>
     )
 }

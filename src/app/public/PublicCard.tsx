@@ -14,7 +14,6 @@ export default function PublicCard() {
             const result = await fetch(url);
             const json = await result.json();
             if (json) setCards(json);
-            console.log(json);
         }
         ExecuteRequets();
     }, [])

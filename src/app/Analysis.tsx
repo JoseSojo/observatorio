@@ -20,6 +20,10 @@ export default function Analysis() {
         Execute();
     }, [])
 
+    /**
+     * FINS STATICTICS CENTURY
+     */
+
     return (
         <div className="grid gap-4">
             <div className="gap-3 grid lg:grid-cols-3">
@@ -29,8 +33,10 @@ export default function Analysis() {
                         <GraphicItemDashboard item={grp} />
                     ))
                 }
-                <div className="grid grid-cols-1 lg:grid-cols-2 lg:col-span-3 gap-3 mt-3">
+                <div className="grid grid-cols-1 lg:col-span-3 gap-3 mt-3">
                     <AbstractStatictics crud={`analysis`} />
+
+                    {/* <StaticticsCentury statictics={{ path:`/statictics/projects/century`, title:`Estadisticas` }} /> */}
                 </div>
             </div>
         </div>

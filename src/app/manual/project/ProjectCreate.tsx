@@ -41,7 +41,6 @@ export default function ProjectCreate({ reload, h }: Props) {
     // 
 
     useEffect(() => {
-        console.log(user);
         const prev = [{ id:user.id, label:`${user.ci ? `${user.ci} - ` : ``} ${user.name} ${user.lastname}` }];
         setDataAuthor(prev);
     }, []);
@@ -183,7 +182,7 @@ export default function ProjectCreate({ reload, h }: Props) {
                     </div>
 
                     <Button click={() => setSelectActive(!selectActive)} customClass="input w-full border border-slate-400 outline-none flex justify-center items-center h-full" ico={Icono({ ico: `student` })} text={`Autores`} />
-                    <ul className={`z-10 absolute w-full bg-white border rounded-b-xl top-[70px] p-1 duration-300 overflow-y-visible ${selectActive ? `scale-1 max-h-52` : `scale-0 h-0`}`}>
+                    <ul className={`z-10 absolute w-full bg-white border rounded-b-xl top-[70px] p-1 duration-300 overflow-auto ${selectActive ? `scale-1 max-h-52` : `scale-0 h-0`}`}>
                         <div className="">
                             <Subtitle customClass="text-sm text-gray-400 font-black" text="Autores" />
                             <div className="flex justify-center items-center gap-3 flex-wrap">

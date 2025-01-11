@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useModal } from "../../_context/ModalContext"
 import ButtonHandler from "../../_handler/ButtonsHandler"
 import { API_STATIC } from "../../entorno"
@@ -15,12 +15,6 @@ export default function ProjectInModal({ item }: Props) {
 
     const modal = useModal();
     const [user, setUser] = useState<any | null>(null);
-
-    console.log(item.programRef);
-
-    useEffect(() => {
-        console.log(user);
-    }, [user])
 
     return (
         <div className="bg-white max-h-[80vh] h-[80vh] rounded-3xl shadow-xl grid grid-cols-1 lg:grid-cols-[.7fr_1fr]">

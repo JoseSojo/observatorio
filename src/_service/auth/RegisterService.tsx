@@ -9,7 +9,6 @@ export async function RegisterService(data: CreateRegisterInterface): Promise<Re
     const result = await fetch(url, req);
     const jsonPromise = result.json();
 
-
     if(!result.ok) {
         const jsonError = await jsonPromise as ResponseRegisterApi;
         return jsonError

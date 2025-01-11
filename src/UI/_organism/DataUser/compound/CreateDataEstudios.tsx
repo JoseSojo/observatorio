@@ -27,8 +27,6 @@ export default function CreateDataEstudios ({reload}:Props) {
     const HandleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        console.log(data);
-
         if(!data.nivel) return noti.setMessage({ active:true,type:`error`,message:`Debes completar el campo "Nivel de estudio"` });
         if(!data.profesion) return noti.setMessage({ active:true,type:`error`,message:`Debes completar el campo "Profesión"` });
         if(!data.yearEnd) return noti.setMessage({ active:true,type:`error`,message:`Debes completar el campo "Año de culminación"` });
@@ -65,7 +63,6 @@ export default function CreateDataEstudios ({reload}:Props) {
                 return;
             }
 
-            console.log(json);
             reload();
             modal.hidden();
         }

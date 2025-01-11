@@ -49,8 +49,6 @@ export default function ProjectUniqueCrud ({}: Props) {
         Execute();
     }, [location,reload]);
 
-    console.log(body);
-
     return (
         <div className="">
             <div className="flex justify-between">

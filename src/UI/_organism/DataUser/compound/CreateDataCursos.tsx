@@ -66,7 +66,6 @@ export default function CreateDataCursos ({reload}:Props) {
                 return;
             }
 
-            console.log(json);
             reload();
             modal.hidden();
         }
