@@ -43,8 +43,6 @@ export default function AbstractUniqueCrud ({}: Props) {
             };
             const response = await LogicUniqueService(param);
 
-            // setHeaders(response.header);
-            // setActionsUnique(response.actionsUnique);
             setActionsList(response.actions);
             setDataList(response.dataList);
             setHeader(response.header);

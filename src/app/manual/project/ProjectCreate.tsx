@@ -12,6 +12,8 @@ import LabelSelect from "../../../UI/_compound/LabelSelect";
 import { getToken } from "../../../utils/token";
 import ButtonHandler from "../../../_handler/ButtonsHandler";
 import Subtitle from "../../../UI/_atom/Subtitle";
+import { getUser } from "../../../utils/token copy";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     reload: () => void;
@@ -20,8 +22,10 @@ interface Props {
 
 export default function ProjectCreate({ reload, h }: Props) {
 
+    const user = JSON.parse(getUser());
     const modal = useModal();
     const noti = useNotification();
+    const navigate = useNavigate();
 
     const [load, setLoad] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -35,6 +39,11 @@ export default function ProjectCreate({ reload, h }: Props) {
     const [customPublic, setCustomPublic] = useState(false);
     const [downloader, setDownloader] = useState(false);
     // 
+
+    useEffect(() => {
+        const prev = [{ id:user.id, label:`${user.ci ? `${user.ci} - ` : ``} ${user.name} ${user.lastname}` }];
+        setDataAuthor(prev);
+    }, []);
 
     const [selectActive, setSelectActive] = useState(false);
     const [list, setList] = useState<{ id: string, label: string }[]>([]);
@@ -86,7 +95,7 @@ export default function ProjectCreate({ reload, h }: Props) {
             // if (!data[`public`]) return alert(`public`);
             // if (!data[`downloader`]) return alert(`downloader`);
             if (!data[`date`]) return alert(`date`);
-            if (!dataSelect[`line`]) return alert(`line`);
+            // if (!dataSelect[`line`]) return alert(`line`);
             if (!dataSelect[`program`]) return alert(`program`);
             if (!dataAuthor) return alert(`autores`);
 
@@ -102,7 +111,7 @@ export default function ProjectCreate({ reload, h }: Props) {
             formData.append(`keywords`, data[`keyword`]);
             formData.append(`date`, data[`date`]);
 
-            formData.append(`lineId`, dataSelect[`line`]);
+            if (dataSelect[`line`]) formData.append(`lineId`, dataSelect[`line`]);
             formData.append(`programId`, dataSelect[`program`]);
 
             formData.append(`userId`, JSON.stringify(selects));
@@ -128,8 +137,13 @@ export default function ProjectCreate({ reload, h }: Props) {
 
             reload();
 
+            navigate(`/project`)
+
             setLoad(false);
             setError(null);
+            return;
+            load;
+            error;
         }
 
         Execute();
@@ -168,7 +182,7 @@ export default function ProjectCreate({ reload, h }: Props) {
                     </div>
 
                     <Button click={() => setSelectActive(!selectActive)} customClass="input w-full border border-slate-400 outline-none flex justify-center items-center h-full" ico={Icono({ ico: `student` })} text={`Autores`} />
-                    <ul className={`z-10 absolute w-full bg-white border rounded-b-xl top-[70px] p-1 duration-300 overflow-y-visible ${selectActive ? `scale-1 max-h-52` : `scale-0 h-0`}`}>
+                    <ul className={`z-10 absolute w-full bg-white border rounded-b-xl top-[70px] p-1 duration-300 overflow-auto ${selectActive ? `scale-1 max-h-52` : `scale-0 h-0`}`}>
                         <div className="">
                             <Subtitle customClass="text-sm text-gray-400 font-black" text="Autores" />
                             <div className="flex justify-center items-center gap-3 flex-wrap">
@@ -213,22 +227,6 @@ export default function ProjectCreate({ reload, h }: Props) {
                         {/* <span className="label-text-alt">Bottom Right label</span> */}
                     </div>
                 </label>
-                {/* 
-                <div className="grid w-full max-w-xs items-center gap-1.5">
-                    <label className="label-text text-lg font-semibold">Portada</label>
-                    <input
-                        onChange={(e) => {
-                            if (e.target.files && e.target.files.length > 0) {
-                                const file = e.target.files[0] as File;
-                                setPortada(file);
-                            }
-                        }}
-                        id="picture"
-                        type="file"
-                        name="file"
-                        className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" />
-                </div> 
-                */}
 
                 <div className="grid w-full grid-cols-2 place-items-center">
                     <label className="gap-3 flex">

@@ -1,6 +1,5 @@
 import { Document, Page, PDFViewer, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { ReportInterface } from "../../types/report/ReportInterface";
-import ExtractValue from "../../utils/ExtractValue";
 
 interface Props {
     item: ReportInterface;
@@ -11,7 +10,6 @@ export default function ReportDocument({ item }: Props) {
 
     const customPages = item.page;
     const header = item.header;
-    const label = item.label;
     const count = item.count;
 
     return (
@@ -34,13 +32,37 @@ export default function ReportDocument({ item }: Props) {
                             {
                                 page.list.map((list) => (
                                     <View style={styles.bodyTable}>
-                                        {
+                                        {/* {
                                             label.map(item => (
                                                 <Text style={styles.bodyTableText}>
                                                     {ExtractValue({ extractBy: item, item: list, current: true })}
                                                 </Text>
                                             ))
-                                        }
+                                        } */}
+                                        <Text style={styles.bodyTableText}>
+                                            {list.title}
+                                        </Text>
+                                        <Text style={styles.bodyTableText}>
+                                            {list.programRef.name}
+                                        </Text>
+                                        <Text style={styles.bodyTableText}>
+                                            {list.programRef.categoryRef.name}
+                                        </Text>
+                                        <Text style={styles.bodyTableText}>
+                                            {list.lineRef ? list.lineRef.name : ``}
+                                        </Text>
+                                        <View style={{fontSize: 9,display:`flex`,flexDirection:`column`,justifyContent:`space-between`,gap:3}}>
+                                            {
+                                                list.authos.map((author: any, i:number) => (
+                                                    <View style={{paddingHorizontal:5}}>
+                                                        <Text>{i+1} - {author.createByRef.name} {author.createByRef.lastname}</Text>
+                                                    </View>
+                                                ))
+                                            }
+                                        </View>
+                                        <Text style={styles.bodyTableText}>
+                                            {list.createAt}
+                                        </Text>
                                     </View>
                                 ))
                             }

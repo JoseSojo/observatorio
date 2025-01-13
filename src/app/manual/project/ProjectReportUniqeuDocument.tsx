@@ -42,6 +42,9 @@ export default function ProjectReportUniqueDocument() {
             setLabel(json.label);
             setHistory(json.history.list);
             setCountHistory(json.history.count);
+            return;
+            countHistory
+            history
         }
         Execute();
     }, []);

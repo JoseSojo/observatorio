@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react"
 import LabelInput from "../UI/_compound/LabelInput"
-import SingleCard from "../UI/_organism/Card/SingleCard"
 import Button from "../UI/_atom/Button";
 import { CreateLoginInterface } from "../types/auth/LoginInterface";
 import { ExecuteLogin } from "../_service/auth/LoginService";
@@ -10,6 +9,7 @@ import { setUser } from "../utils/token copy";
 import { useAuth } from "../_context/auth/AuthContext";
 import NavbarPublic from "./public/NavbarPublic";
 import LinkTo from "../UI/_atom/LinkTo";
+import FooterPublic from "./public/FooterPublic";
 
 
 export default function Login() {
@@ -49,12 +49,12 @@ export default function Login() {
 
     return (
 
-        <div className="min-h-screen w-full">
+        <div className="min-h-screen w-full flex flex-col justify-between">
             <header>
                 <NavbarPublic />
             </header>
             <div className="h-full flex justify-center items-center mt-5">
-                <SingleCard>
+                <div className="card bg-base-100 w-[90%] lg:w-[40%] shadow-lg border-t p-5">
                     <form onSubmit={HandleSubmit} className="w-full justify-center items-center flex flex-col">
                         <h1 className="text-2xl">Iniciar Sesión</h1>
                         <LabelInput 
@@ -81,8 +81,9 @@ export default function Login() {
                         path="/register" 
                         text="¿No tienes cuenta?, Crear cuenta"
                         />
-                </SingleCard>
+                </div>
             </div>
+            <FooterPublic />
         </div>
     )
 }

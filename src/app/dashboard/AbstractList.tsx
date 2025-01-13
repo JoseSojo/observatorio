@@ -38,15 +38,15 @@ export default function AbstractList({ header, path, actions, onAction, reload,s
             const req = RequestOptionsGetToken({ method: `GET` });
 
             const result = await fetch(url, req);
-            const jsonPromise = result.json();
+            const jsonPromise = await result.json();
             if (!result.ok) {
-                const jsonError = await jsonPromise;
+                const jsonError = jsonPromise;
                 return jsonError
             }
 
             setList([]);
 
-            const json = await jsonPromise;
+            const json = jsonPromise;
             setList(json.body.list);
             setNow(json.body.now);
             setNext(json.body.next ? true : false);

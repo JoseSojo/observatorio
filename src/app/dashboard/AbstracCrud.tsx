@@ -8,6 +8,7 @@ import ButtonHandler from "../../_handler/ButtonsHandler";
 import { Icono } from "../../_handler/IconHandler";
 import AbstractList from "./AbstractList";
 import HanldeClick from "../../utils/useHandleClick";
+import AbstractStatictics from "./AbstracStatictics";
 
 interface Props {}
 
@@ -61,6 +62,10 @@ export default function AbstractCrud ({}: Props) {
             </div>
 
             <AbstractList loadReload={Reload} reload={reload} onAction={HandleActionsList} actions={actionsUnique} header={headers} path={`/${crud}`} />
+        
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3">
+                <AbstractStatictics crud={crud} />
+            </div>
         </div>
     )
 }

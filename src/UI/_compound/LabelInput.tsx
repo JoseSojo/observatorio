@@ -13,15 +13,15 @@ interface Props {
     name:           string;
 }
 
-export default function LabelInput({type, name, customClass, placeholder, change, value, downText, label}: Props) {
+export default function LabelInput({type, name, placeholder, change, value, downText, label}: Props) {
 
 
-    const cls = customClass ? customClass : `input input-bordered w-full`
+    const cls = `input input-sm input-bordered w-full`
 
     return(
         <label className="form-control w-full ">
             <div className="label">
-                <Text customClass="label-text text-lg font-semibold" text={label} />
+                <Text customClass="label-text text-light text-gray-600" text={label} />
                 {/* <span className="label-text-alt">Top Right label</span> */}
             </div>
             <Input name={name} type={type} customClass={cls} placeholder={placeholder} change={change} value={value}  />

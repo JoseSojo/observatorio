@@ -10,7 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export interface Graphic {
     label:      string[];
-    value:      number[];
+    value:      {label:string,value:any[]}[];
 }
 
 
@@ -20,7 +20,7 @@ export default function DashboardGraphic () {
 
     useEffect(() => {
         const Execute = async () => {
-            const url = `${API}/gui/graphic`;
+            const url = `${API}/gui/graphic/?biblioteca=si`;
             const req = RequestOptionsGetToken({ method:`GET` });
             const result = await fetch(url, req);
             const json = await result.json() as Graphic[];
@@ -28,8 +28,6 @@ export default function DashboardGraphic () {
         }
         Execute();
     }, [])
-
-    
 
     return (
         <>
@@ -40,5 +38,5 @@ export default function DashboardGraphic () {
                 ))
             }
         </>
-    )
+    );
 }

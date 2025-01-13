@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import { useModal } from "../../../_context/ModalContext";
-import { useNotification } from "../../../_context/NotificationContext";
 import Text from "../../../UI/_atom/Text";
 import { Icono } from "../../../_handler/IconHandler";
 import Subtitle from "../../../UI/_atom/Subtitle";
@@ -12,10 +10,7 @@ interface Props {
     id: string
 }
 
-export default function ProjectDownload({ reload,id }: Props) {
-
-    const modal = useModal();
-    const noti = useNotification();
+export default function ProjectDownload({ id }: Props) {
 
     const [data,setData] = useState<any>({});
 
@@ -36,6 +31,8 @@ export default function ProjectDownload({ reload,id }: Props) {
             if(json.body) setData(json.body);
             setLoad(false);
             setError(null);
+            return 
+            error
         }
         Execute();
     }, []);

@@ -5,12 +5,14 @@ import LinkTo from "../../UI/_atom/LinkTo";
 import { getUser } from "../../utils/token copy";
 import { useModal } from "../../_context/ModalContext";
 import Logout from "../../UI/_organism/Logout";
+import SearchAnimate from "../../UI/AnimateIcons/SearchAnimate";
 
 interface Props {
-    changeSearch?: ({ name, value }: { name: string, value: string }) => void
+    changeSearch?: ({ name, value }: { name: string, value: string }) => void;
+    reload?: () => void
 }
 
-export default function NavbarPublic({ changeSearch }: Props) {
+export default function NavbarPublic({ changeSearch,reload }: Props) {
 
     const navigate = useNavigate();
     const modal = useModal();
@@ -23,7 +25,14 @@ export default function NavbarPublic({ changeSearch }: Props) {
 
             {
                 changeSearch &&
-                <Input change={changeSearch} customClass="flex-1 p-3 shadow-lg rounded outline-none border text-gray-500" name="find" type="text" placeholder="Buscar..." />
+                <div className="flex pl-3 gap-1 justify-between items-center">
+                    <Button
+                        click={() => {if(reload) reload()}}
+                        customClass="hover:bg-slate-300 py-3 px-3 rounded"
+                        ico={<SearchAnimate size={25} />}
+                    />
+                    <Input change={changeSearch} customClass="flex-1 p-3 shadow-lg rounded outline-none border text-gray-500" name="find" type="text" placeholder="Buscar..." />
+                </div>
             }
 
             <ul className="flex-1 flex justify-end items-center gap-5">

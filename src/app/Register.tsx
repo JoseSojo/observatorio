@@ -8,6 +8,7 @@ import LinkTo from "../UI/_atom/LinkTo";
 import { CreateRegisterInterface } from "../types/auth/RegisterInterface";
 import { RegisterService } from "../_service/auth/RegisterService";
 import { useNavigate } from "react-router-dom";
+import FooterPublic from "./public/FooterPublic";
 
 
 export default function Register() {
@@ -16,7 +17,7 @@ export default function Register() {
     // const auth = useAuth();
     const navigate = useNavigate();
 
-    const [data, setData] = useState<CreateRegisterInterface>({ usertype:`OBRERO_ADMINISTRATIVO`,email: ``, password: ``, ci: ``, lastname: ``, name: ``, username: ``, });
+    const [data, setData] = useState<CreateRegisterInterface>({ usertype: `OBRERO_ADMINISTRATIVO`, email: ``, password: ``, ci: ``, lastname: ``, name: ``, username: ``, });
 
     const HandleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -35,7 +36,7 @@ export default function Register() {
             // setUser(response.body.user);
 
             noti.setMessage({ active: true, message: response.message, type: "success" });
-            navigate(`/login`, { replace:true })
+            navigate(`/login`, { replace: true })
             // auth.setSession(true);
             // window.location.reload();
         }
@@ -49,7 +50,7 @@ export default function Register() {
 
     return (
 
-        <div className="min-h-screen w-full">
+        <div className="min-h-screen w-full flex flex-col justify-between">
             <header>
                 <NavbarPublic />
             </header>
@@ -112,45 +113,63 @@ export default function Register() {
                                 type="password"
                                 value={data.password}
                                 customClass="" />
-                        
-                            <label className="flex gap-3 items-center">
-                                <span>Estudiante</span>
-                                <input 
-                                    onChange={() => {
-                                        const type = `ESTUDIANTE` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO`
-                                        const prev = {...data, usertype:type };
-                                        setData(prev);
-                                    }} 
-                                    type="radio" 
-                                    name="usertype" 
-                                    value={`ESTUDIANTE`} 
-                                    />
-                            </label>
 
-                            <label className="flex gap-3 items-center">
-                                <span>Obrero/Administrativo</span>
-                                <input 
-                                    onChange={() => {
-                                        const type = `OBRERO_ADMINISTRATIVO` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO`
-                                        const prev = {...data, usertype:type };
-                                        setData(prev);
-                                    }} 
-                                    type="radio" 
-                                    name="usertype" 
-                                    value={`OBRERO_ADMINISTRATIVO`} 
+                            <div className="col-span-3 grid lg:grid-cols-3 mb-3">
+                                <label className="flex gap-3 items-center">
+                                    <span className="text-light text-gray-600">Estudiante</span>
+                                    <input
+                                        onChange={() => {
+                                            const type = `ESTUDIANTE` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO` | `DOCENTE`
+                                            const prev = { ...data, usertype: type };
+                                            setData(prev);
+                                        }}
+                                        type="radio"
+                                        name="usertype"
+                                        value={`ESTUDIANTE`}
                                     />
-                            </label>
+                                </label>
+
+                                <label className="flex gap-3 items-center">
+                                    <span className="text-light text-gray-600">Docente</span>
+                                    <input
+                                        onChange={() => {
+                                            const type = `DOCENTE` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO` | `DOCENTE`
+                                            const prev = { ...data, usertype: type };
+                                            setData(prev);
+                                        }}
+                                        type="radio"
+                                        name="usertype"
+                                        value={`ESTUDIANTE`}
+                                    />
+                                </label>
+
+                                <label className="flex gap-3 items-center">
+                                    <span className="text-light text-gray-600">Obrero/Administrativo</span>
+                                    <input
+                                        onChange={() => {
+                                            const type = `OBRERO_ADMINISTRATIVO` as `ESTUDIANTE` | `OBRERO_ADMINISTRATIVO` | `DOCENTE`
+                                            const prev = { ...data, usertype: type };
+                                            setData(prev);
+                                        }}
+                                        type="radio"
+                                        name="usertype"
+                                        value={`OBRERO_ADMINISTRATIVO`}
+                                    />
+                                </label>
+                            </div>
 
                         </div>
                         <Button type="submit" text="enviar" customClass="btn bg-blue-600 hover:bg-blue-500 text-white" />
                     </form>
                     <LinkTo
                         customClass="text-sm font-light m-auto mt-4 text-sky-700 hover:text-sky-800"
-                        path="/register"
+                        path="/login"
                         text="¿Ya tienes cuenta?, Iniciar sesión"
                     />
                 </SingleCard>
             </div>
+
+            <FooterPublic />
         </div>
     )
 }

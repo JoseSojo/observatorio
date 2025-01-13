@@ -11,8 +11,6 @@ import useHanldeClickProject from "../../../utils/useHandleClickProject";
 import ProjectUpdate from "./ProjectUpdate";
 import Text from "../../../UI/_atom/Text";
 import Subtitle from "../../../UI/_atom/Subtitle";
-import AbstractCustomList from "../../dashboard/AbstractCustomList";
-import { API } from "../../../entorno";
 
 interface Props {}
 
@@ -104,9 +102,9 @@ export default function ProjectUniqueCrud ({}: Props) {
                         report={Reload}
                         />
                 </div>
-                <div className="card bg-base-100 p-4 col-span-5">
+                {/* <div className="card bg-base-100 p-4 col-span-5">
                     <AbstractCustomList url={`${API}/project/${id}/history`} />
-                </div>
+                </div> */}
             </div>
         </div>
     )
