@@ -56,7 +56,7 @@ export default function GraphicItemDashboard({ item }: Props) {
             />
             <div className="p-3 bg-custom-white-100 border-9 w-full rounded-lg shadow max-h-[400px] flex flex-col justify-center items-center py-5">
                 <header className="flex justify-between items-center">
-                    <h3 className="text-sm font-black text-gray-700">Gráfico</h3>
+                    <h3 className="text-sm font-black text-gray-700">{item.title}</h3>
                 </header>
                 <Pie data={data} options={{ maintainAspectRatio: false,animation:true }} style={{ fontSize:6 }} />
             </div>

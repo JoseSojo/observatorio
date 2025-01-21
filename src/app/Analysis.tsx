@@ -4,6 +4,8 @@ import { API } from "../entorno";
 import { RequestOptionsGetToken } from "../utils/req/RequetsOptions";
 import GraphicItemDashboard from "../UI/_compound/GraphicItemDashboard";
 import AbstractStatictics from "./dashboard/AbstracStatictics";
+import GraphicEtario from "../UI/_compound/Etario";
+import GraphicByState from "../UI/_compound/ByState";
 
 export default function Analysis() {
 
@@ -11,8 +13,8 @@ export default function Analysis() {
 
     useEffect(() => {
         const Execute = async () => {
-            const url = `${API}/gui/graphic`;
-            const req = RequestOptionsGetToken({ method:`GET` });
+            const url = `${API}/gui/graphic/?logic=true`;
+            const req = RequestOptionsGetToken({ method: `GET` });
             const result = await fetch(url, req);
             const json = await result.json() as Graphic[];
             setGraphic(json);
@@ -26,14 +28,17 @@ export default function Analysis() {
 
     return (
         <div className="grid gap-4">
-            <div className="gap-3 grid lg:grid-cols-3">
+            <div className="gap-3 grid lg:grid-cols-2">
+                {/* <GraphicByState /> */}
                 {
                     graphic &&
                     graphic.map((grp) => (
                         <GraphicItemDashboard item={grp} />
                     ))
                 }
-                <div className="grid grid-cols-1 lg:col-span-3 gap-3 mt-3">
+                <GraphicEtario />
+
+                <div className="grid grid-cols-1 lg:col-span-2 gap-3 mt-3">
                     <AbstractStatictics crud={`analysis`} />
 
                     {/* <StaticticsCentury statictics={{ path:`/statictics/projects/century`, title:`Estadisticas` }} /> */}

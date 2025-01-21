@@ -9,6 +9,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 export interface Graphic {
+    title:      string;
     label:      string[];
     value:      {label:string,value:any[]}[];
 }
