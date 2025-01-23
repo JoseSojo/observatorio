@@ -9,7 +9,7 @@ import PublicCard from "./PublicCard";
 import ArrowLeft from "../../UI/AnimateIcons/ArrowLeft";
 import LoaderAnimate from "../../UI/AnimateIcons/LoadAnimate";
 import CheckAnimate from "../../UI/AnimateIcons/CheckAnimate";
-import PublicGraphic from "./PublicGraphic";
+// import PublicGraphic from "./PublicGraphic";
 import Subtitle from "../../UI/_atom/Subtitle";
 import FooterPublic from "./FooterPublic";
 
@@ -138,13 +138,12 @@ export default function Biblioteca() {
                 <NavbarPublic changeSearch={HandleChange} reload={() => setReload(!reload)} />
             </header>
 
-            <div className="grid grid-cols-2 p-3 gap-3">
-                <PublicGraphic />
+            <div className="grid p-3 gap-3">
 
-                <div className="grid grid-cols-1 place-content-center gap-3">
+                <div className="grid grid-cols-1 lg:grid-cols-3 place-content-center gap-3">
                     <PublicCard />
 
-                    <section className="flex justify-end gap-5 items-center">
+                    <section className="col-span-3 flex justify-end gap-5 items-center">
                         <span className="text-md font-light text-slate-600 flex gap-3 border border-slate-50 px-2 py-3 rounded">
                             Resultados <b className="font-black">{count}</b> <CheckAnimate size={28} />
                         </span>
