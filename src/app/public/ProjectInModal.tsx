@@ -28,7 +28,7 @@ export default function ProjectInModal({ item }: Props) {
                                     user.profilePath
                                         ? <img
                                             className="object-cover h-20 w-20 rounded-full scale-125 -translate-y-10"
-                                            src={`${API_STATIC}${user.profilePath}`}
+                                            src={`${API_STATIC}${user.profilePath ? user.profilePath : ``}`}
                                             alt="Profile"
                                         />
                                         : <div className="object-cover h-20 w-20 rounded-full scale-125 -translate-y-10 bg-slate-400"></div>
@@ -37,7 +37,7 @@ export default function ProjectInModal({ item }: Props) {
 
                             <div className="h-56 mx-4 w-5/6 bg-gradient-to-r from-slate-600 to-slate-300 rounded-3xl shadow-md sm:w-80 sm:mx-0">
                                 <div className="h-1/2 w-full flex justify-between items-baseline px-3 py-5">
-                                    <p className="text-white text-xs font-bold">@{user.username}</p>
+                                    <p className="text-white text-xs font-bold">@{user.username ? user.username : ``}</p>
                                     <span></span>
                                 </div>
 
@@ -45,16 +45,27 @@ export default function ProjectInModal({ item }: Props) {
                                     <div className="w-full h-1/2 flex justify-between items-center px-3 pt-2">
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-gray-500 text-sm">Correo</p>
-                                            <p className="text-gray-600 text-xs font-bold">{user.email}</p>
+                                            <p className="text-gray-600 text-xs font-bold">{user.email ? user.email : ``}</p>
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-gray-500 text-sm">Teléfono</p>
-                                            <p className="text-gray-600 text-xs font-bold">{user.phone}</p>
+                                            <p className="text-gray-600 text-xs font-bold">{user.phone ? user.phone : ``}</p>
                                         </div>
                                     </div>
                                     <div className="w-full h-1/2 flex flex-col justify-center items-center">
-                                        <p className="text-gray-700 font-bold">{user.name} {user.lastname}</p>
-                                        <p className="text-gray-500 text-sm">{user.parroquiaReference.municipioReference.stateReference.name}, <b>{user.parroquiaReference.name}</b></p>
+                                        <p className="text-gray-700 font-bold">{user.name ? user.name : ``} {user.lastname ? user.lastname : ``}</p>
+                                        <p className="text-gray-500 text-sm">{
+                                            user.parroquiaReference
+                                            && user.parroquiaReference.municipioReference
+                                            && user.parroquiaReference.municipioReference.stateReference
+                                            && user.parroquiaReference.municipioReference.stateReference.name
+                                            } 
+                                            <b>
+                                                {
+                                                    user.parroquiaReference && `, ${user.parroquiaReference.name}`
+                                                }
+                                            </b>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +92,7 @@ export default function ProjectInModal({ item }: Props) {
                                         autor.createByRef.profilePath &&
                                         <img src={`${API_STATIC}${autor.createByRef.profilePath}`} className="scale-125 object-cover rounded-full" style={{ width: 30, height: 30 }} />
                                     }
-                                    <span className="py-1 px-2">{autor.createByRef.name} {autor.createByRef.lastname}</span>
+                                    <span className="py-1 px-2">{autor.createByRef.name ? autor.createByRef.name : ``} {autor.createByRef.lastname ? autor.createByRef.lastname : ``}</span>
                                 </Button>
                             ))
                         }

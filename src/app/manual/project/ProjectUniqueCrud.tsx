@@ -52,7 +52,7 @@ export default function ProjectUniqueCrud ({}: Props) {
     return (
         <div className="">
             <div className="flex justify-between">
-                <Title customClass="text-2xl font-black flex items-center" text={title} />
+                <Title customClass="text-2xl flex-1 max-w-3xl font-black flex items-center" text={title} />
 
                 <ul className="flex gap-3 justify-center items-center">
                     {
