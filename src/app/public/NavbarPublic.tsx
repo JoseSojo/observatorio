@@ -21,7 +21,9 @@ export default function NavbarPublic({ changeSearch,reload }: Props) {
     return (
         <nav className="flex justify-between items-center w-full py-3 px-5 bg-gray-50 shadow lg:gap-5">
 
-            <LinkTo path="/" customClass="text-2xl font-black" text="Biblioteca" />
+            <img src="/logo2.png" className="w-20"/>
+            <LinkTo path="/" customClass="text-2xl font-black" text="Observatorio de Investigación, Ciencia, Tecnoliogía e Innovación UNERG" /> 
+            
 
             {
                 changeSearch &&
