@@ -529,7 +529,7 @@ export default function CreateDataEstudios ({reload}:Props) {
                     <option></option>
                 </select>
             </label>
-
+<br/>
             <label className="grid w-full">
                 <label className="text-sm text-gray-600 font-semibold">Área</label>
                 <select onChange={HandleChange} name="area" className="select select-sm border border-gray-400">
