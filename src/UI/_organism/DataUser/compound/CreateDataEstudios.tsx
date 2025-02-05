@@ -515,9 +515,18 @@ export default function CreateDataEstudios ({reload}:Props) {
                 <label className="text-sm text-gray-600 font-semibold">Institución</label>
                 <select onChange={HandleChange} name="institucion" className="select select-sm border border-gray-400">
                     <option value={``}></option>
-                    <option>Institución 1</option>
-                    <option>Institución 2</option>
-                    <option>Institución 3</option>
+                    <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA DEL MAR (IUTEMAR)</option>
+                    <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA ELÍAS CALIXTO POMPA (IUTECP)</option>
+                    <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA HENRY PITTIER (IUTHEPI)</option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
                 </select>
             </label>
 
