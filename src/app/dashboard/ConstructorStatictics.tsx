@@ -25,7 +25,7 @@ export default function ConstructorStatictics({ statictics }: Props) {
 
     useEffect(() => {
         const ExecuteRequets = async () => {
-            const url = `${API}${statictics.path}`;
+            const url = `${API}${statictics.path}/`;
             const req = RequestOptionsGetToken({ method: `GET` });
             const result = await fetch(url, req);
             const json = await result.json() as { labelFilter:string[],header: string[], value: string[], title: string, filter: any | null, filterName: `month` | `year` | null };
@@ -33,18 +33,21 @@ export default function ConstructorStatictics({ statictics }: Props) {
             if (json.filter) setFilter(json.filter);
             if (json.filterName) setFilterName(json.filterName);
             if (json.labelFilter) setLabelFilterName(json.labelFilter);
+
         }
         ExecuteRequets();
     }, [])
 
     useEffect(() => {
         const ExecuteRequets = async () => {
+            console.log(customFilter);
             const url = `${API}${statictics.path}&month=${customFilter && customFilter.month ? customFilter.month : ``}&year=${customFilter && customFilter.year ? customFilter.year : ``}`;
             const req = RequestOptionsGetToken({ method: `GET` });
             const result = await fetch(url, req);
             const json = await result.json() as { header: string[], value: { label: string, value: any[] }[], title: string, filter: any | null };
             setHeader(json.header);
             setValue(json.value);
+            console.log(json);
         }
         ExecuteRequets();
     }, [customFilter, customFilter?.month, customFilter?.year])

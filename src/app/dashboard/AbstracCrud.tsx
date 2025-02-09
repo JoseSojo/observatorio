@@ -8,7 +8,7 @@ import ButtonHandler from "../../_handler/ButtonsHandler";
 import { Icono } from "../../_handler/IconHandler";
 import AbstractList from "./AbstractList";
 import HanldeClick from "../../utils/useHandleClick";
-import AbstractStatictics from "./AbstracStatictics";
+// import AbstractStatictics from "./AbstracStatictics";
 
 interface Props {}
 
@@ -21,6 +21,7 @@ export default function AbstractCrud ({}: Props) {
     const [actionsList, setActionsList] = useState<ActionCrudInterface[]>([]);
     const [actionsUnique, setActionsUnique] = useState<ActionCrudInterface[]>([]);
     const [headers, setHeaders] = useState<string[]>([]);
+    const [param, setParam] = useState(``);
 
     const [reload, setReload] = useState(false);
     const Reload = () => setReload(!reload);
@@ -46,6 +47,7 @@ export default function AbstractCrud ({}: Props) {
                 <Title customClass="text-2xl font-black flex items-center" text={title} />
 
                 <ul className="flex gap-3 justify-center items-center">
+                    <input className="inpit input-sm border rounded outline-none" onChange={(e) => setParam(e.target.value)} />
                     {
                         actionsList.map((item) => (
                             <Button
@@ -61,11 +63,11 @@ export default function AbstractCrud ({}: Props) {
                 </ul>
             </div>
 
-            <AbstractList loadReload={Reload} reload={reload} onAction={HandleActionsList} actions={actionsUnique} header={headers} path={`/${crud}`} />
+            <AbstractList param={param} loadReload={Reload} reload={reload} onAction={HandleActionsList} actions={actionsUnique} header={headers} path={`/${crud}`} />
         
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3">
+            {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3">
                 <AbstractStatictics crud={crud} />
-            </div>
+            </div> */}
         </div>
     )
 }
