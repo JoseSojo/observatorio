@@ -8,11 +8,8 @@ export default function FooterPublic() {
         <footer className="bg-[url('/bg.jpg')] bg-cover bg-center h-screen footer shadow-2xl flex justify-end items-center flex-col p-10 mt-10">
             <aside className="bg-opacity-80 p-3 rounded-lg">
                 <p className="text-center font-semibold text-white">
-<<<<<<< HEAD
                     <strong className="text-lg font-black text-white">Observatorio de Investigación, Ciencia, Tecnología, e Innovación UNERG.</strong>
-=======
                     <strong className="text-lg font-black text-white">Biblioteca Universitaria.</strong>
->>>>>>> 6a4110e77398bcb379bf0b7ecde18a05b4ea1ee6
                     <br />
                     <div className="flex justify-center gap-5 mt-3  rounded px-3 py-1">
                         <a href="https://www.facebook.com/oficialunerg1977/?locale=es_LA" target="_blank" className="text-2xl p-3 rounded-lg bg-slate-900 hover:bg-slate-700">
