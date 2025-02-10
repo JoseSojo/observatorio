@@ -9,11 +9,7 @@ export default function FooterPublic() {
             <aside>
                 <img src="/logo.png" className="m-auto" style={{ width: 250 }} />
                 <p className="text-center font-semibold text-white">
-<<<<<<< Updated upstream
-                    <strong className="text-lg font-black text-white">Observatorio de Investigación, Ciencia, Tecnoliogía e Inovación UNERG</strong>
-=======
                     <strong className="text-lg font-black text-white">Observatorio de Investigación, Ciencia, Tecnología, e Innovación UNERG.</strong>
->>>>>>> Stashed changes
                     <br />
                     <div className="flex justify-center gap-5 mt-3  rounded px-3 py-1">
                         <a href="https://facebook.com" target="_blank" className="text-2xl p-3 rounded-lg hover:bg-slate-700">

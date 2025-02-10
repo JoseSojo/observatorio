@@ -5,10 +5,7 @@ import { RequestOptionsGetToken } from "../utils/req/RequetsOptions";
 import GraphicItemDashboard from "../UI/_compound/GraphicItemDashboard";
 import AbstractStatictics from "./dashboard/AbstracStatictics";
 import GraphicEtario from "../UI/_compound/Etario";
-<<<<<<< Updated upstream
-=======
 import GraphicByState from "../UI/_compound/ByState";
->>>>>>> Stashed changes
 
 export default function Analysis() {
 

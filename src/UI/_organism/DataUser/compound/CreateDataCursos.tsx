@@ -80,7 +80,7 @@ export default function CreateDataCursos ({reload}:Props) {
                 <label className="text-sm text-gray-600 font-semibold">Tipo de capacitación</label>
                 <select onChange={HandleChange} name="tipo" className="select select-sm border border-gray-400">
                     <option value={``}></option>
-                    <option>Tipo 1</option>
+                    <option>Tipov 1</option>
                     <option>Tipo 2</option>
                     <option>Tipo 3</option>
                 </select>
