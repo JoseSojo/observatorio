@@ -86,7 +86,10 @@ export default function CreateDataEstudios ({reload}:Props) {
                     <option>ESPECIALIZACIÓN</option>
                     <option>MAESTRÍA</option>
                     <option>DOCTORADO</option>
+<<<<<<< HEAD
                     
+=======
+>>>>>>> 6a4110e77398bcb379bf0b7ecde18a05b4ea1ee6
                 </select>
             </label>
 
@@ -299,7 +302,11 @@ export default function CreateDataEstudios ({reload}:Props) {
                     <option>ZOOLOGÍA</option>
                     <option>AVICULTOR</option>
                     <option>ESTUDIANTE</option>
+<<<<<<< HEAD
 
+=======
+                    
+>>>>>>> 6a4110e77398bcb379bf0b7ecde18a05b4ea1ee6
                 </select>
             </label>
 
@@ -519,6 +526,7 @@ export default function CreateDataEstudios ({reload}:Props) {
                     <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA DEL MAR (IUTEMAR)</option>
                     <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA ELÍAS CALIXTO POMPA (IUTECP)</option>
                     <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA HENRY PITTIER (IUTHEPI)</option>
+<<<<<<< HEAD
                     <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA INDUSTRIAL (IUTI)</option>
                     <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA JOSÉ LEONARDO CHIRINO (iutjlch)</option>
                     <option>INSTITUTO UNIVERSITARIO DE TECNOLOGÍA JOSÉ MARÍA CARREÑO (IUTJMC)</option>
@@ -553,6 +561,8 @@ export default function CreateDataEstudios ({reload}:Props) {
                     <option></option>
                     <option></option>
                     <option></option>
+=======
+>>>>>>> 6a4110e77398bcb379bf0b7ecde18a05b4ea1ee6
                     <option></option>
                     <option></option>
                     <option></option>

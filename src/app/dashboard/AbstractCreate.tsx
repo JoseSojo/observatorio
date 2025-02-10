@@ -49,7 +49,7 @@ export default function AbstractCreate ({item,crud,reload}: Props) {
     }, []);
 
     const HandleChange = ({name,value}:{name:string,value:string}) => {
-        const prev = {...data, [name]: value};
+        const prev = {...data, [name]: typeof value === "string" ? name === `password` || name === `email` ? value : value.toLocaleUpperCase() : value};
         setData(prev);
     }
 

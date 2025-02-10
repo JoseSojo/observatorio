@@ -14,10 +14,11 @@ interface Props {
     onAction: ({ ico, label, path, use, id }: ActionCrudInterface) => void;
     reload?: boolean;
     loadReload?: () => void;
-    superUrl?: string
+    superUrl?: string;
+    param: string
 }
 
-export default function AbstractList({ header, path, actions, onAction, reload,superUrl }: Props) {
+export default function AbstractList({ header, param, path, actions, onAction, reload,superUrl }: Props) {
 
     const location = useLocation();
     const [list, setList] = useState<any[]>([]);
@@ -34,7 +35,7 @@ export default function AbstractList({ header, path, actions, onAction, reload,s
     useEffect(() => {
         const Execute = async () => {
             setTake(take);
-            const url = superUrl ? superUrl : `${API}${path}/?skip=${skip}&take=${take}`;
+            const url = superUrl ? superUrl : `${API}${path}/?skip=${skip}&take=${take}&param=${param}`;
             const req = RequestOptionsGetToken({ method: `GET` });
 
             const result = await fetch(url, req);
@@ -54,7 +55,7 @@ export default function AbstractList({ header, path, actions, onAction, reload,s
             setDataList(json.body.dataList);
         }
         Execute();
-    }, [reload, location.pathname, skip, take]);
+    }, [reload, location.pathname, skip, take, param]);
 
     return (
         <>

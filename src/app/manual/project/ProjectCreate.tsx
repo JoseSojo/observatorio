@@ -159,7 +159,11 @@ export default function ProjectCreate({ reload, h }: Props) {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-3 p-4">
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 6a4110e77398bcb379bf0b7ecde18a05b4ea1ee6
                 <label className="form-control w-full relative">
                     <div className="label">
                         <Text customClass="label-text text-lg font-semibold" text={`Autores (${dataAuthor.length})`} />
@@ -210,7 +214,11 @@ export default function ProjectCreate({ reload, h }: Props) {
                         }
                     </ul>
 
+<<<<<<< HEAD
    <LabelInput
+=======
+                      <LabelInput
+>>>>>>> 6a4110e77398bcb379bf0b7ecde18a05b4ea1ee6
                     label="Título"
                     type="text"
                     change={HandleChange}
@@ -219,6 +227,7 @@ export default function ProjectCreate({ reload, h }: Props) {
                     placeholder="Título..."
                     value={data[`title`] ? data[`title`] : ``}
                 />
+<<<<<<< HEAD
 
                     <div className="label">
                         {/* <Text customClass="label-text-alt" text={downText ? downText : ``} /> */}
@@ -245,6 +254,27 @@ export default function ProjectCreate({ reload, h }: Props) {
                 
                     <br></br>
                     
+=======
+                    
+                <div className="grid w-full max-w-xs items-center gap-1.5">
+                    <label className="label-text text-lg font-semibold">Resumen de Trabajo</label>
+                    <input
+                        onChange={(e) => {
+                            if (e.target.files && e.target.files.length > 0) {
+                                const file = e.target.files[0] as File;
+                                setFile(file);
+                            }
+                        }}
+                        id="picture"
+                        type="file"
+                        name="file"
+                        className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" />
+                    <br></br>
+                </div>
+                 
+                <div className="grid w-full grid-cols-2 place-items-center">
+                   
+>>>>>>> 6a4110e77398bcb379bf0b7ecde18a05b4ea1ee6
                     <label className="gap-3 flex">
                         <span>¿Público?</span>
                         <input onChange={(e) => setCustomPublic(e.target.checked ? true : false)} type="checkbox" name="public" />
@@ -267,9 +297,13 @@ export default function ProjectCreate({ reload, h }: Props) {
                         className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" /> */}
                 </div>
 
+<<<<<<< HEAD
              
 
                 <LabelInput
+=======
+              <LabelInput
+>>>>>>> 6a4110e77398bcb379bf0b7ecde18a05b4ea1ee6
                     label="Fecha"
                     type="date"
                     change={HandleChange}
