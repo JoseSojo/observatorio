@@ -17,6 +17,8 @@ export default function NavbarPublic({ changeSearch,reload }: Props) {
     const navigate = useNavigate();
     const modal = useModal();
 
+    const title = `Biblioteca Postgrado`; // Observatorio de Investigación, Ciencia, Tecnología, e Innovación UNERG.
+
     const user = JSON.parse(getUser());
     return (
         <nav className="flex justify-between items-center w-full py-3 px-5 bg-gray-50 shadow lg:gap-5">
@@ -26,7 +28,7 @@ export default function NavbarPublic({ changeSearch,reload }: Props) {
             <LinkTo path="/" customClass="text-2xl font-black" text="Observatorio de Investigación, Ciencia, Tecnología, e Innovación UNERG." />
            <img src="/logo2.png" alt="logo" className="w-20"/>
            
-            <LinkTo path="/" customClass="text-2xl font-black" text="Observatorio de Investigación, Ciencia, Tecnología, e Innovación UNERG." />
+            <LinkTo path="/" customClass="text-2xl font-black" text={title} />
 
 
             {
