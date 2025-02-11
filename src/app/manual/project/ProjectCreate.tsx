@@ -209,7 +209,7 @@ export default function ProjectCreate({ reload, h }: Props) {
                         }
                     </ul>
 
-   <LabelInput
+                 <LabelInput
                     label="Título"
                     type="text"
                     change={HandleChange}
@@ -219,32 +219,8 @@ export default function ProjectCreate({ reload, h }: Props) {
                     value={data[`title`] ? data[`title`] : ``}
                 />
 
-                    <div className="label">
-                        {/* <Text customClass="label-text-alt" text={downText ? downText : ``} /> */}
-                        {/* <span className="label-text-alt">Bottom Right label</span> */}
-                    </div>
-                </label>
-
-                <div className="grid w-full grid-cols-2 place-items-center">
-
-                      <div className="grid w-full max-w-xs items-center gap-1.5">
-                    <label className="label-text text-lg font-semibold">Resumen de Trabajo</label>
-                    <input
-                        onChange={(e) => {
-                            if (e.target.files && e.target.files.length > 0) {
-                                const file = e.target.files[0] as File;
-                                setFile(file);
-                            }
-                        }}
-                        id="picture"
-                        type="file"
-                        name="file"
-                        className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" />
-                    </div>
-                
-                    <br></br>
-                    
-                    
+                </label>           
+                                        
                 <div className="grid w-full max-w-xs items-center gap-1.5">
                     <label className="label-text text-lg font-semibold">Resumen de Trabajo</label>
                     <input
@@ -258,37 +234,38 @@ export default function ProjectCreate({ reload, h }: Props) {
                         type="file"
                         name="file"
                         className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" />
-                    <br></br>
+                    
+                    {/* determinar distribución */}
+                    <div className="grid w-full grid-cols-2 place-items-center">
+                   
+                   <label className="gap-3 flex">
+                       <span>¿Público?</span>
+                       <input onChange={(e) => setCustomPublic(e.target.checked ? true : false)} type="checkbox" name="public" />
+                   </label>
+                   <label className="gap-3 flex">
+                       <span>Descargable?</span>
+                       <input onChange={(e) => setDownloader(e.target.checked ? true : false)} type="checkbox" name="public" />
+                   </label>
+                   {/* <label className="label-text text-lg font-semibold">Portada</label>
+                   <input
+                       onChange={(e) => {
+                           if (e.target.files && e.target.files.length > 0) {
+                               const file = e.target.files[0] as File;
+                               setPortada(file);
+                           }
+                       }}
+                       id="picture"
+                       type="file"
+                       name="file"
+                       className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" /> */}
+               </div>
+
                 </div>
                  
-                <div className="grid w-full grid-cols-2 place-items-center">
-                   
-                    <label className="gap-3 flex">
-                        <span>¿Público?</span>
-                        <input onChange={(e) => setCustomPublic(e.target.checked ? true : false)} type="checkbox" name="public" />
-                    </label>
-                    <label className="gap-3 flex">
-                        <span>Descargable?</span>
-                        <input onChange={(e) => setDownloader(e.target.checked ? true : false)} type="checkbox" name="public" />
-                    </label>
-                    {/* <label className="label-text text-lg font-semibold">Portada</label>
-                    <input
-                        onChange={(e) => {
-                            if (e.target.files && e.target.files.length > 0) {
-                                const file = e.target.files[0] as File;
-                                setPortada(file);
-                            }
-                        }}
-                        id="picture"
-                        type="file"
-                        name="file"
-                        className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" /> */}
-                </div>
-
-             
+               
 
                 <LabelInput
-                               label="Fecha"
+                    label="Fecha"
                     type="date"
                     change={HandleChange}
                     customClass="input w-full border border-slate-400 outline-none"
@@ -369,7 +346,7 @@ export default function ProjectCreate({ reload, h }: Props) {
                 </label>
 
             </div>
-            </div>
+            
         </form>
     )
 }
