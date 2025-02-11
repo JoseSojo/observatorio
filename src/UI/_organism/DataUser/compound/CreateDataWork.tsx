@@ -83,9 +83,14 @@ export default function CreateDataWork ({reload}:Props) {
                 <label className="text-sm text-gray-600 font-semibold">Tipo de institución</label>
                 <select onChange={HandleChange} name="tipoInstitucion" className="select select-sm border border-gray-400">
                     <option value={``}></option>
-                    <option>Tipo 1</option>
-                    <option>Tipo 2</option>
-                    <option>Tipo 3</option>
+                    <option>GOBIERNO</option>
+                    <option>EMPRESA PRIVADA</option>
+                    <option>EMPRESA PÚBLICA</option>
+                    <option>EMPRESA MIXTA</option>
+                    <option>EDUCACIÓN UNIVERSITARIA</option>
+                    <option>ORGANIZACIÓN NO GUBERNAMENTAL</option>
+                    <option>PODER POPULAR</option>
+                  
                 </select>
             </label>
 
@@ -103,9 +108,17 @@ export default function CreateDataWork ({reload}:Props) {
                 <label className="text-sm text-gray-600 font-semibold">Ocupación</label>
                 <select onChange={HandleChange} name="ocupacion" className="select select-sm border border-gray-400">
                     <option value={``}></option>
-                    <option>ocupación 1</option>
-                    <option>ocupación 2</option>
-                    <option>ocupación 3</option>
+                    <option>GERENTE</option>
+                    <option>OCUPACIONES DE LA FUERZA ARMADA</option>
+                    <option>OCUPACIONES ELEMENTALES</option>
+                    <option>OPERADOR DE PLANTAS, MÁQUINAS Y ENSAMBLADORES</option>
+                    <option>PROFESIONAL</option>
+                    <option>TÉCNICO O PROFESIONAL ASOCIADO</option>
+                    <option>TRABAJADOR CALIFICADO DE LA AGRICULTURA, LA SILVICULTURA Y LA PESCA</option>
+                    <option>TRABAJADOR DE APOYO ADMINISTRATIVO</option>
+                    <option>TRABAJADOR DE ARTESANÍA Y OFICIOS CONEXOS</option>
+                    <option>TRABAJADOR DE SERVICIOS Y VENTAS</option>
+                    <option></option>
                 </select>    
             </label>
 
