@@ -5,7 +5,6 @@ import { RequestOptionsGetToken } from "../utils/req/RequetsOptions";
 import GraphicItemDashboard from "../UI/_compound/GraphicItemDashboard";
 import AbstractStatictics from "./dashboard/AbstracStatictics";
 import GraphicEtario from "../UI/_compound/Etario";
-import GraphicByState from "../UI/_compound/ByState";
 
 export default function Analysis() {
 

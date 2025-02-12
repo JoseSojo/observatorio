@@ -14,7 +14,7 @@ export default function Nav({}: Props) {
 
     return (
         <nav className="flex p-3 px-5 justify-between bg-slate-900">
-            <LinkTo path="/" customClass="uppercase text-white font-black text-xl" text="OICTI - UNERG" /> 
+            <LinkTo path="/" customClass="uppercase text-white font-black text-xl" text="Biblioteca - UNERG" /> 
             <img src="/dist/logo3.png" alt="logo" className="w-20"/>
             <ul className="flex gap-4">
                 <li className="flex-1 flex justify-center items-center">
