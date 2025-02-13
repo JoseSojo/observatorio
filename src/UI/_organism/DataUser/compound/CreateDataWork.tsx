@@ -580,74 +580,38 @@ export default function CreateDataWork ({reload}:Props) {
                     <option></option>
 
                     {/*inistitucion de tipo organismo no guberbamental*/}
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
+                    <option>ARCHIVO ARQUIDIOCESANO DE MÉRIDA</option>
+                    <option>ASOCIACIÓN VENEZOLANA PARA LA CONSERVACIÓN DE ÁREAS NATURALES</option>
+                    <option>FUNDACIÓN CENTRO DE ESTUDIOS SOBRE CRECIMIENTO Y DESARROLLO DE LA POBLACIÓN VENEZOLANA (FUNDACREDESA)</option>
+                    <option>FUNDACIÓN CENTRO NACIONAL DE GENÉTICA MÉDICA DR. JOSÉ GREGORIO HERNÁNDEZ</option>
+                    <option>FUNDACIÓN DE EDIFICACIONES Y EQUIPAMIENTO HOSPITALARIO (FUNDEEH)</option>
+                    <option>FUNDACIÓN INSTITUTO CARABOBEÑO PARA LA SALUD (INSALUD)</option>
+                    <option>FUNDACIÓN LA SALLE DE CIENCIAS NATURALES (FLASA)</option>
+                    <option>FUNDACIÓN LABORATORIO NACIONAL DE VIALIDAD (FUNDALANAVIAL)</option>
+                    <option>FUNDACIÓN MOVIMIENTO BOLIVARIANO REVOLUCIONARIO DE LA RESERVA ACTIVA “GENERAL EN JEFE FÉLIX ANTONIO VELÁSQUEZ”</option>
+                    <option>FUNDACIÓN MUSEO DE ARTE MODERNO JESÚS SOTO</option>
+                    <option>FUNDACIÓN MUSEO DE CIENCIAS NATURALES (MUCI)</option>
+                    <option>FUNDACIÓN NACIONAL DEL ARROZ</option>
+                    <option>FUNDACIÓN NACIONAL PARA EL DESARROLLO DE LA BIOTECNOLOGÍA (NADBIO)</option>
+                    <option>FUNDACIÓN PARA EL DESARROLLO DE LAS CIENCIAS FÍSICAS, MATEMÁTICAS Y NATURALES (FUDECI)</option>
+                    <option>FUNDACIÓN PARA EL FOMENTO DE LAS TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES (FUNDATICS)</option>
+                    <option>FUNDACIÓN PARA LA AGRICULTURA TROPICAL ALTERNATIVA Y DESARROLLO INTEGRAL (FUNDATADI)</option>
+                    <option>FUNDACIÓN PARA LA INVESTIGACIÓN AGRÍCOLA (DANAC)</option>
+                    <option>FUNDACIÓN PARA LA INVESTIGACIÓN Y DESARROLLO DE LA ACUICULTURA EN EL ESTADO SUCRE (FIDAES)</option>
+                    <option>FUNDACIÓN PARQUE TECNOLÓGICO DE BARQUISIMETO (TECNOPARQUE)</option>
+                    <option>FUNDACIÓN TIERRA VIVA</option>
+                    <option>FUNDACIÓN UNIDOS CONTRA LA TUBERCULOSIS EN GRUPOS INDÍGENAS</option>
+                    <option>FUNDACIÓN VENEZOLANA DE HIPERTENSIÓN ARTERIAL (FUNDAHIPERTENSIÓN)</option>
+                    <option>FUNDACIÓN VENEZOLANA DE INVESTIGACIÓN, DESARROLLO E INNOVACIÓN PARA EL TRANSPORTE (FUVIDIT)</option>
+                    <option>FUNDACIÓN VENEZOLANA DE NATUROLOGIA CUÁNTICA  (FUVENAC)</option>
+                    <option>FUNDACIÓN WILLIAM H. PHELPS</option>
+                    <option>FUNDACIÓN ESCUELA VENEZOLANA DE PLANIFICACIÓN (FEVP)</option>
+                    <option>FUNDACIÓN PARA LA ALIMENTACIÓN Y NUTRICIÓN JOSÉ MARÍA BENGOA</option>
+                    <option>GRUPO DE INVESTIGACIÓN ALTERIDAD LATINOAMERICANA Y CARIBEÑA (GI-ALTERLATINO)</option>
+                    <option>GRUPO DE TRABAJO EN TORTUGAS MARINAS DE NUEVA ESPARTA</option>
+                    <option>INSTITUTO PARA EL CONTROL Y CONSERVACIÓN DE LA CUENCA DEL LAGO DE MARACAIBO (ICLAM)</option>
+                    <option>FUNDACIÓN DESARROLLO SUSTENTABLE DE VENEZUELA (FDSV)</option>
+                    
 
                     {/*inistitucion de tipo poder popular */}
                     <option>COMITÉ LOCAL DE ABASTECIMIENTO Y PRODUCCIÓN CLAP</option>
@@ -661,6 +625,8 @@ export default function CreateDataWork ({reload}:Props) {
                     <option>CONSEJO COMUNAL VILLA TAMARE</option>
                     <option>CULTORES/TECNÓLOGOS LNAVAS</option>
                     <option>CONSEJO COMUNAL BARRIO BOLÍVAR II</option>
+                    <option>ASOCIACIÓN CIVIL CENTRO DE FORMACIÓN INTEGRAL EDUCATEMAS</option>
+                    <option>UNIDAD PRODUCTIVA FAMILIAR CARABOBO LIBRE</option>
                     
                 </select>
             </label>
@@ -679,7 +645,7 @@ export default function CreateDataWork ({reload}:Props) {
                     <option>TRABAJADOR DE APOYO ADMINISTRATIVO</option>
                     <option>TRABAJADOR DE ARTESANÍA Y OFICIOS CONEXOS</option>
                     <option>TRABAJADOR DE SERVICIOS Y VENTAS</option>
-                    <option></option>
+            
                 </select>    
             </label>
 
