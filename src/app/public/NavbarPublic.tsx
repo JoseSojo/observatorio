@@ -25,8 +25,6 @@ export default function NavbarPublic({ changeSearch,reload }: Props) {
 
            
             <LinkTo path="/" customClass="text-2xl font-black" text={title} />
-
-
             {
                 changeSearch &&
                 <div className="flex pl-3 gap-1 justify-between items-center">

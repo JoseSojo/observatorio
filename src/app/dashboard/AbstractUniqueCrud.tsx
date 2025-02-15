@@ -9,8 +9,8 @@ import { LogicUniqueService } from "../../_service/crud/LogicUniqueService";
 import HanldeClick from "../../utils/useHandleClick";
 import ExtractValue from "../../utils/ExtractValue";
 import AbstractUpdate from "./AbstractUpdate";
-import AbstractCustomList from "./AbstractCustomList";
-import { API } from "../../entorno";
+// import AbstractCustomList from "./AbstractCustomList";
+// import { API } from "../../entorno";
 
 interface Props {}
 
@@ -90,9 +90,9 @@ export default function AbstractUniqueCrud ({}: Props) {
                     <AbstractUpdate crud={crud} item={{ ico:`update`, label:title, path:`/${crud}/${id}`, use:`page` }} reload={Reload} />
                 </div>
 
-                <div className="card bg-base-100 p-4 col-span-5">
+                {/* <div className="card bg-base-100 p-4 col-span-5">
                     <AbstractCustomList url={`${API}/${crud}/${id}/history`} />
-                </div>
+                </div> */}
             </div>
         </div>
     )
