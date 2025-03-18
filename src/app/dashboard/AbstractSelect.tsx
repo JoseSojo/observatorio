@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Select } from "../../types/gui/FromInterface";
 import Button from "../../UI/_atom/Button";
-import { Icono } from "../../_handler/IconHandler";
+// import { Icono } from "../../_handler/IconHandler";
 import { RequestOptionsGetToken } from "../../utils/req/RequetsOptions";
 import { API } from "../../entorno";
 import Input from "../../UI/_atom/Input";
@@ -40,7 +40,7 @@ export default function AbstractSelect({item,change}: Props) {
 
     return (
         <div className="relative">
-            <Button click={()=>setSelectActive(!selectActive)} customClass="py-3 w-full flex justify-center items-center h-full border border-slate-400 gap-3 rounded-lg" ico={Icono({ ico:`category` })} text={label} />
+            <Button click={()=>setSelectActive(!selectActive)} customClass="select select-sm w-full flex justify-center items-center h-full border border-slate-400 gap-3 rounded-lg" text={label} />
             <ul className={`absolute z-50 w-full bg-white border rounded-b-xl top-10 p-1 duration-300 overflow-y-visible ${selectActive ? `scale-1 max-h-52` : `scale-0 h-0`}`}>
                 <Input change={(e) => setParam(e.value)} placeholder="Escriba para buscar" customClass="outline-none border border-slate-400 w-full rounded p-2" name="search" type="text" />
                 {

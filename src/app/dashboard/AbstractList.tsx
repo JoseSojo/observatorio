@@ -45,6 +45,8 @@ export default function AbstractList({ header, param, path, actions, onAction, r
                 return jsonError
             }
 
+            console.log(jsonPromise.body.list);
+
             setList([]);
 
             const json = jsonPromise;

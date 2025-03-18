@@ -16,7 +16,7 @@ export default function AbstractItemInput({ item, change, value }: Props) {
 
     if (select.select) return <label className="form-control w-full">
         <div className="label">
-            <Text customClass="label-text text-lg font-semibold" text={item.label} />
+            <Text customClass="label-text text-sm text-gray-700" text={item.label} />
             {/* <span className="label-text-alt">Top Right label</span> */}
         </div>
         <AbstractSelect change={change} item={select} />

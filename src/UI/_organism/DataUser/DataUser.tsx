@@ -99,7 +99,7 @@ export default function DataUser({ userId, update }: Props) {
 
         if (!personalData.age) return NotiError(`Debes agregar tu edad.`);
         if (!personalData.birthdate) return NotiError(`Debes agregar tu fecha de nacimiento.`);
-        if (!personalData.ci) return NotiError(`Debes agregar tu cédula.`);
+        // if (!personalData.ci) return NotiError(`Debes agregar tu cédula.`);
         if (!personalData.civil) return NotiError(`Debes agregar tu estado civíl.`);
         if (!personalData.lastname2) return NotiError(`Debes agregar tu segundo apellido.`);
         // if (!personalData.lastname) return NotiError(`Debes agregar tu apellido.`);
